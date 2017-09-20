@@ -5,7 +5,7 @@
 clear;
 close all;
 
-%import aeroBox.shockBox.*;
+import aeroBox.shockBox.*;
 
 gamma = 1.4;
 % Mach 2 conditions
@@ -13,7 +13,7 @@ rampAngle = 4; % degrees
 
 % Part (i)
 % Solve for the total turning angle at the end when M_0 = 2
-[shockAngle, M1] = aeroBox.shockBox.calcObliqueShockAngle('rampAngle', rampAngle, ...
+[shockAngle, M1] = calcObliqueShockAngle('rampAngle', rampAngle, ...
     'mach', 2, 'gamma', gamma, 'useDegrees', 1);
 v1 = aeroBox.shockBox.prandtlMeyerFcn('mach', M1, 'gamma', 1.4);
 v_end = aeroBox.shockBox.prandtlMeyerFcn('mach', 1, 'gamma', 1.4);
@@ -26,7 +26,7 @@ totalTurning = isoRampTurning + rampAngle;
 % Solve for conditions and geometry at mach 4
 
 % Ramp section
-[shockAngle, M1] = aeroBox.shockBox.calcObliqueShockAngle('rampAngle', rampAngle, ...
+[shockAngle, M1] = calcObliqueShockAngle('rampAngle', rampAngle, ...
     'mach', 4, 'gamma', gamma, 'useDegrees', 1);
 v1 = aeroBox.shockBox.prandtlMeyerFcn('mach', M1, 'gamma', 1.4);
 x(1) = 0;
@@ -42,6 +42,8 @@ x_w = (yInt2 - yInt1) / (slope1 - slope2);
 h_w = h_0 - slope2 * x_w ;
 
 % Isentropic spike section
+
+
 startMach = M1;
 endMach = aeroBox.shockBox.calcPMExpansionFan('mach', M1, 'gamma', 1.4, 'useDegrees', 1, 'turningAngle', -isoRampTurning);
 numSteps = 20;
@@ -105,7 +107,7 @@ yc = y(end) - cosd(totalTurning) * rad;
 xc = x(end) + sind(totalTurning) * rad;
 
 % Draw the arc
-numPoints = 20;
+numPoints = 200;
 startAngle = 360 - totalTurning;
 endAngle = 360;
 angleStep = (endAngle - startAngle) / numPoints;
@@ -120,14 +122,14 @@ y = [y yr yr(end)];
 
 % Diffuser
 
-% Area function, conical
+% Area function
 areaFunc = @(x, angle, r) (pi * (r^2 - (r - tand(angle) * x)^2)) / (pi * r^2);
 
 throatEndHeight = y(end);
 diffAngle = 3;
 dMin = 0;
 dMax = throatEndHeight / tand(diffAngle);
-numSteps = 20;
+numSteps = 200;
 dStep = (dMax - dMin) / numSteps;
 for i = 1:numSteps
     areaRat = areaFunc(i * dStep, diffAngle, throatEndHeight);
@@ -135,18 +137,23 @@ for i = 1:numSteps
     yd(i) = throatEndHeight - areaRat * throatEndHeight;
 end
 
-% Append to overall geometry
 x = [x xd];
 y = [y yd];
+
+figure;
+hold on;
+plot(x, y, 'k');
+axis equal;
+
 
 % Now let's make the cowl
 xCowl(1) = x_0;
 yCowl(1) = h_0;
 
-% Translate the arc to the cowl
+% Translate the arc
 startAngle = 360 - atand((xc - xCowl) / (yCowl - yc));
 endAngle = 360;
-numPoints = 20;
+numPoints = 200;
 angleStep = (endAngle - startAngle) / numPoints;
 rad = sqrt((xCowl - xc)^2 + (yCowl - yc)^2);
 for i = 1:numPoints
@@ -158,20 +165,13 @@ end
 xCowl(end + 1) = x(end);
 yCowl(end + 1) = yCowl(end);
 
+plot(xCowl, yCowl, 'k');
 
-% Know the goemetry now, let's calculate the inlet properties at any given mach
-machs = linspace(2.1, 2.1, 1);
-doPlot = 1; % Flag for plotting inlet geometry with the shock and mach waves
+% Know the goemetry now, let's calculate the inlet curve at any given mach
+
+machs = linspace(3, 4, 10);
 for j = 1:numel(machs)
     thisMach = machs(j);
-    
-    if (doPlot)
-        % Start the figure
-        figure;
-        hold on;
-    end
-    
-    % Set up inital properties
     q = 1500;
     rho_1 = 1;
     
@@ -185,24 +185,19 @@ for j = 1:numel(machs)
     P_1 = aeroBox.shockBox.calcPressureAfterOblique('gamma', 1.4, 'mach', thisMach, 'rampAngle', rampAngle, 'useDegrees', 1, 'Ps', P_0);
     
     
-    % Leading shock
-    [shockAngle, startMach] = aeroBox.shockBox.calcObliqueShockAngle('rampAngle', rampAngle, ...
+    % Shock
+    [shockAngle, startMach] = calcObliqueShockAngle('rampAngle', rampAngle, ...
         'mach', thisMach, 'gamma', gamma, 'useDegrees', 1);
     
-    % Total properties after the shock
-    T_1 = aeroBox.isoBox.calcStaticTemp('mach', startMach, 'gamma', 1.4, 'Tt', T_t_0);
+    T_1 = aeroBox.isoBox.calcStaticTemp('mach', startMach, 'gamma', 1.4, 'Tt', T_t_0); 
     T_t_1 = T_t_0;
     rho_t_1 = rho_1 * (1 + ((1.4 - 1) / 2) * startMach^2)^(1 / (1.4 - 1));
     Pt_1 = aeroBox.isoBox.calcStagPressure('mach', startMach, 'gamma', 1.4, 'Ps', P_1);
     v_1 = sqrt(1.4 * 286.9 * T_1) * startMach;
-    
-    if doPlot
-        % Plot the shock
-        dist = 5;
-        plot([x(1), x(1) + cosd(shockAngle) * dist], ...
-            [y(1), y(1) + sind(shockAngle) * dist], 'r');
-    end
-    
+    % Plot the shock
+    dist = 10;
+    plot([x(1), x(1) + cosd(shockAngle) * dist], ...
+        [y(1), y(1) + sind(shockAngle) * dist], 'r');
     
     % Calculate machs along the iso ramp
     for i = 1:numel(isoAngles)
@@ -219,11 +214,8 @@ for j = 1:numel(machs)
         % Calculate the line function
         isoMachSlope(i) = tand(machAngle + isoAngles(i));
         isoMachYInt(i) = isoH(i) - isoMachSlope(i) * isoX(i);
-        if doPlot
-            % Plot mach waves
-            plot([isoX(i), isoX(i) + cosd(machAngle + isoAngles(i)) * dist], ...
-                [isoH(i), isoH(i) + sind(machAngle + isoAngles(i)) * dist], 'g');
-        end
+        plot([isoX(i), isoX(i) + cosd(machAngle + isoAngles(i)) * dist], ...
+            [isoH(i), isoH(i) + sind(machAngle + isoAngles(i)) * dist], 'g');
     end
     
     % Calculate conditions after the terminal shock
@@ -236,7 +228,6 @@ for j = 1:numel(machs)
     T_t_3 = T_t_1;
     rho_t_3 = rho_3 * (1 + ((1.4 - 1) / 2) * M3^2)^(1 / (1.4 - 1));
     
-    % Calculate exit properties
     A_e = yCowl(end);
     M5 = aeroBox.isoBox.machFromAreaRatio((A_e / ht) * ...
         aeroBox.isoBox.calcARatio(M3, 1.4), 1.4, 0);
@@ -265,37 +256,23 @@ for j = 1:numel(machs)
     yInt = capY(2) - capX(2) * slope;
     capX(1) = (-yInt) / (slope - tand(shockAngle));
     capY(1) = yInt + slope * capX(1);
-    if doPlot
-        % Plot the capture area contour
-        plot(capX, capY, 'b');
-    end
+    plot(capX, capY, 'b');
+    
     % Calculate pressure force along the segment
     A_i = capY(1);
+    
     pressures = [P_1, isoPressure] - P_0;
-    % Calculate spillate Cd
-    Cd_add(j) = sum(pressures .* diff(capY)) / (q * A_i);
+    Cd_add = sum(pressures .* diff(capY)) / (q * A_i);
+    Cd_inlet = (A_i * P_1) / (q * A_i);
     
-    % Calculate inlet Cd
-    Cd_inlet(j) = (A_i * P_1) / (q * A_i);
+    Cd_tot(j) = Cd_inlet + Cd_add;
     
-    % Total Cd
-    Cd_tot(j) = Cd_inlet(j) + Cd_add(j);
-    
-    % Record properties
     aRat(j) = A_i;
     ptRat(j) = P_t_3 / P_t_0;
     pRat(j) = P_5 / P_0;
     tRat(j) = T_5 / T_0;
     throatM(j) = M3;
     exitMach(j) = M5;
-    
-    if doPlot
-        % Plot inlet geometry over everything else
-        title(sprintf('Inlet Geometry for M = %0.2f', thisMach));
-        plot(x, y, 'k', 'LineWidth', 2);
-        axis equal;
-        plot(xCowl, yCowl, 'k', 'LineWidth', 2);
-    end
 end
 
 figure;
@@ -306,11 +283,7 @@ ylabel('A_i / A_0');
 
 
 figure;
-hold on;
 plot(machs, Cd_tot);
-plot(machs, Cd_add);
-plot(machs, Cd_inlet);
-legend('Total', 'Spillage', 'Inlet');
 title('Inlet Drag Coefficient');
 xlabel('Mach No.');
 ylabel('Cd');
@@ -323,7 +296,7 @@ ylabel('P_5 / P_0');
 
 figure;
 plot(machs, ptRat);
-title('Pressure Recovery');
+title('Pressure RE');
 xlabel('Mach No.');
 ylabel('P_t_5 / P_t_0');
 
@@ -332,18 +305,6 @@ plot(machs, tRat);
 title('Static Temperature Ratio');
 xlabel('Mach No.');
 ylabel('T_5 / T_0');
-
-figure;
-plot(machs, throatM);
-title('Throat Mach Number');
-xlabel('Mach No.');
-ylabel('M_5');
-
-figure;
-plot(machs, exitMach);
-title('Exit Mach Number');
-xlabel('Mach No.');
-ylabel('M_5');
 
 
 
