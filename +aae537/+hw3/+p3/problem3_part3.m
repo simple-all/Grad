@@ -1,6 +1,6 @@
 % Thomas Satterly
 % AAE 537, HW 3
-% Problem 3
+% Problem 3, Part iii
 
 clear;
 close all;
@@ -42,7 +42,7 @@ MFP_1 = sqrt(gamma_1 / R_air) * (M_1 / ((1 + ((gamma_1 - 1) / 2) * M_1^2)^((gamm
 % Fan stream properties
 T_2 = 350; % K
 mdot_2 = 83.9; % kg/s
-M_2 = 0.4; % Mach
+M_2 = 0.408; % Mach
 P_2 = 2 * 101325; % Pa
 rho_2 = P_2 / (R_air * T_2); % kg/m^3
 cp_2 = cp_air_f(T_2) / MW_air * 1000; % J/kg*K
@@ -72,7 +72,7 @@ r_lobe = R_h  * (pi / (24 - 2 * pi)); % m
 P = 24 * pi * r_lobe + 24 * (R - R_h - 4 * r_lobe); % m
 
 % Guess at L_n
-L_n = 0.45; % m
+L_n = 0.4; % m
 Lerr = inf;
 tolerance = 1e-1;
 numSteps = 100;
@@ -94,19 +94,23 @@ while (abs(Lerr) > tolerance)
     x = 0;
     b = 0;
     i = 0;
-    while b < r_lobe && x <= L_n
+    while b < r_lobe
         i = i + 1;
         % Using last known state of core and fan, find the increase in
         % mixture area
         r = v_2 / v_1;
         s = rho_2 / rho_1;
+        
+        % Find M_r just for fun
+        M_r = (2 * M_1 * (1 - r)) / (1 + (1 / sqrt(s)));
+        
         lambda_s = ((1 - r) * (1 + sqrt(s))) / (2 * (1 + r * sqrt(s)));
         db_dx_i = 0.161 * lambda_s;
         v_c = (v_1 + sqrt(s) * v_2) / (1 + sqrt(s));
         M_c = (v_1 - v_c) / v_1;
         db_dx_c = (0.2 + 0.8 * exp(-3 * M_c^2)) * db_dx_i;
         b = b + db_dx_c * dx;
-        A_mix = b * P; % Cross section area of mix stream tube, m^2
+        A_mix = b * P * 2; % Cross section area of mix stream tube, m^2
         x = x + dx;
         if (b >= r_lobe) % If fully mixed, exit the loop
             break;
@@ -163,30 +167,42 @@ while (abs(Lerr) > tolerance)
         mdot_1 = mdot_1 - dmdot_1;
         mdot_2 = mdot_2 - dmdot_2;
         A_left = area(x / L_n, R, R_h) - A_mix;
-        if A_left <= 0 || imag(A_left) ~= 0
+        if A_left <= 0
             keyboard;
         end
+
+        % Put that MF-P to use!
         A_1_temp = (mdot_1 * sqrt(Tt_1)) / (MFP_1 * Pt_1);
         A_2_temp = (mdot_2 * sqrt(Tt_2)) / (MFP_2 * Pt_2);
         A_temp = A_1_temp + A_2_temp;
-        A_1 = (A_1_temp / A_temp) * A_left;
-        A_2 = (A_2_temp / A_temp) * A_left;
-        % Put that MF-P to use!
-%         A_1 = (mdot_1 * sqrt(Tt_1)) / (MFP_1 * Pt_1);
-%         A_2 = (mdot_2 * sqrt(Tt_2)) / (MFP_2 * Pt_2);
+        A_1 = A_left * (A_1_temp / A_temp);
+        A_2 = A_left * (A_2_temp / A_temp);
+        
+        if (A_1 < A_star_1)
+            A_1 = A_star_1;
+            M_1 = 1;
+        else
+            M_1 = aeroBox.isoBox.machFromAreaRatio(A_1 / A_star_1, gamma_1, 0);
+        end
+        
+        if (A_2 < A_star_2)
+            A_2 = A_star_2;
+            M_2 = 1;
+        else
+            M_2 = aeroBox.isoBox.machFromAreaRatio(A_2 / A_star_2, gamma_2, 0);
+        end
+        
 %          M_1 = aae537.hw3.p3.machFromMFP('MFP', MFP_1, 'gamma', gamma_1, 'R', R_air);
 %         M_2 = aae537.hw3.p3.machFromMFP('MFP', MFP_2, 'gamma', gamma_2, 'R', R_air);
        
-        M_1 = aeroBox.isoBox.machFromAreaRatio(A_1 / A_star_1, gamma_1, 0);
-        M_2 = aeroBox.isoBox.machFromAreaRatio(A_2 / A_star_2, gamma_2, 0);
-
+        
         P_1 = aeroBox.isoBox.calcStaticPressure('mach', M_1, 'gamma', gamma_1, 'Pt', Pt_1);
         P_2 = aeroBox.isoBox.calcStaticPressure('mach', M_2, 'gamma', gamma_2, 'Pt', Pt_2);
 %         P_1 = 2 * 101325 - (101325 * (x / L_n));
 %         P_2 = P_1;
         
-%         M_1 = aeroBox.isoBox.machFromPressureRatio('Prat', P_1 / Pt_1, 'gamma', gamma_1); 
-%         M_2 = aeroBox.isoBox.machFromPressureRatio('PRat', P_1 / Pt_1, 'gamma', gamma_2);
+        M_1 = aeroBox.isoBox.machFromPressureRatio('Prat', P_1 / Pt_1, 'gamma', gamma_1); 
+        M_2 = aeroBox.isoBox.machFromPressureRatio('PRat', P_1 / Pt_1, 'gamma', gamma_2);
         
         T_1 = aeroBox.isoBox.calcStaticTemp('mach', M_1, 'gamma', gamma_1, 'Tt', Tt_1);
         T_2 = aeroBox.isoBox.calcStaticTemp('mach', M_2, 'gamma', gamma_2, 'Tt', Tt_2);
@@ -211,6 +227,7 @@ while (abs(Lerr) > tolerance)
         results(i).A_1 = A_1;
         results(i).A_2 = A_2;
         results(i).A_total = A_mix + A_1 + A_2;
+        results(i).A_real = area(x / L_n, R, R_h);
         results(i).v_1 = v_1;
         results(i).v_2 = v_2;
         results(i).v_mix = v_mix;
@@ -220,6 +237,17 @@ while (abs(Lerr) > tolerance)
         results(i).P_1 = P_1;
         results(i).P_2 = P_2;
         results(i).b = b;
+        results(i).T_1 = T_1;
+        results(i).T_2 = T_2;
+        results(i).T_mix = T_mix;
+        results(i).M_1 = M_1;
+        results(i).M_2 = M_2;
+        results(i).M_mix = M_mix;
+        results(i).M_c = M_c;
+        results(i).db_dx_c = db_dx_c;
+        results(i).M_r = M_r;
+        results(i).P = P_1;
+        results(i).P_2 = P_2;
     end
     
     Lerr = (L_n - x) / x;
@@ -262,8 +290,11 @@ hold on;
 plot([results.x], [results.A_1]);
 plot([results.x], [results.A_2]);
 plot([results.x], [results.A_mix]);
+plot([results.x], [results.A_1] + [results.A_2] + [results.A_mix]);
+plot([results.x], [results.A_real]);
 xlabel('x');
 ylabel('Stream Area (m^2)');
+legend('Core', 'Fan', 'Mix', 'Total', 'Linear Duct');
 title('Stream Tube Area');
 
 figure;
@@ -273,6 +304,55 @@ xlabel('x');
 ylabel('b');
 title('b v. x');
 
+figure;
+hold on;
+plot([results.x], [results.db_dx_c]);
+xlabel('x');
+ylabel('db/dx_c');
+title('db/dx_c v. x');
+
+figure;
+hold on;
+plot([results.x], [results.T_1]);
+plot([results.x], [results.T_2]);
+plot([results.x], [results.T_mix]);
+xlabel('x');
+ylabel('T (K)');
+legend('Core', 'Fan', 'Mix');
+title('Static Temperature v. x');
+
+figure;
+hold on;
+plot([results.x], [results.M_1]);
+plot([results.x], [results.M_2]);
+plot([results.x], [results.M_mix]);
+xlabel('x');
+ylabel('Mach');
+legend('Core', 'Fan', 'Mix');
+title('Stream Mach v. x');
+
+figure;
+hold on;
+plot([results.x], [results.M_c]);
+xlabel('x');
+ylabel('M_c');
+title('M_c v. x');
+
+figure;
+hold on;
+plot([results.x], [results.M_r]);
+xlabel('x');
+ylabel('M_r');
+title('M_r v. x');
+
+figure;
+hold on;
+plot([results.x], [results.P_1]);
+plot([results.x], [results.P_2]);
+xlabel('x');
+ylabel('Static Pressure (Pa)');
+legend('Core', 'Fan');
+title('Stream Pressure v. x');
 
 
 

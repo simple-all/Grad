@@ -92,7 +92,7 @@ for i = 1:numel(alpha)
         cp_h2o = cp_h2o_f(T_mix) / MW_h2o;
         
         % Calculate cp_mix on a mass basis
-        cp_mix = (mdot_r / mdot_mix) * (cp_co * mf_co + cp_co2 * mf_co2 + cp_h2 * mf_h2 + cp_h2 * mf_h2o) ...
+        cp_mix = (mdot_r / mdot_mix) * (cp_co * mf_co + cp_co2 * mf_co2 + cp_h2 * mf_h2 + cp_h2o * mf_h2o) ...
             + (mdot_a / mdot_mix) * cp_a; % J / kg * K
         
         % Calculate energy balance error
@@ -139,6 +139,11 @@ for i = 1:numel(alpha)
     results(i).A_rat = A_mix / (A_a + A_r);
     results(i).sepJetThrust = mdot_a * v_a_e + mdot_r * v_r_e;
     results(i).mixJetThrust = mdot_mix * v_mix_e;
+    results(i).r_thrust = mdot_r * v_r_e;
+    results(i).a_thrust = mdot_a * v_a_e;
+    results(i).v_a_e = v_a_e;
+    results(i).v_r_e = v_r_e;
+    results(i).v_mix_e = v_mix_e;
 end
 
 figure;
@@ -147,8 +152,21 @@ xlabel('\alpha');
 ylabel('Jet Thrust (N)');
 plot([results.alpha], [results.sepJetThrust]);
 plot([results.alpha], [results.mixJetThrust]);
-legend('Seperate Streams', 'Mixed Streams');
+plot([results.alpha], [results.r_thrust]);
+plot([results.alpha], [results.a_thrust]);
+legend('Seperate Streams', 'Mixed Streams', 'Rocket', 'Air');
 title('Separate & Mixed Jet Thrust v. Alpha');
+
+
+figure;
+hold on;
+xlabel('\alpha');
+ylabel('Exit Velocity (m/s)');
+plot([results.alpha], [results.v_a_e]);
+plot([results.alpha], [results.v_r_e]);
+plot([results.alpha], [results.v_mix_e]);
+legend('Seperate Streams - Air', 'Seperate Streams - Rocket', 'Mixed Streams');
+title('Exit Velocities v. Alpha');
 
 
 

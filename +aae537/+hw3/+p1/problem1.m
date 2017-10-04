@@ -17,7 +17,7 @@ R = 8314; % J / mol*K, Universal gas constant;
 % Rocket exit properties
 cp_r = 2.0599; %kJ/kg*K
 gamma_r = 1.23256;
-MW_r = 21.228; % kg/mol
+MW_r = 21.228; % g/mol
 R_r = R / MW_r; % J/mol*K
 AeRatio = 5.829; % Area ratio at rocket exit for expansion to match static pressure of air
 rho_r = 0.14351; % kg/m^3
@@ -72,7 +72,7 @@ for i = 1:numel(alpha)
         cp_h2o = cp_h2o_f(T_mix) / MW_h2o;
         
         % Calculate cp_mix on a mass basis
-        cp_mix = (mdot_r / mdot_mix) * (cp_co * mf_co + cp_co2 * mf_co2 + cp_h2 * mf_h2 + cp_h2 * mf_h2o) ...
+        cp_mix = (mdot_r / mdot_mix) * (cp_co * mf_co + cp_co2 * mf_co2 + cp_h2 * mf_h2 + cp_h2o * mf_h2o) ...
             + (mdot_a / mdot_mix) * cp_a; % J / kg * K
         
         % Calculate energy balance error
@@ -90,6 +90,7 @@ for i = 1:numel(alpha)
             T_mix = T_mix - T_step;
         end
     end
+    
     MW_mix = mdot_mix / ((mdot_a / MW_a) + (mdot_r / MW_r));
     R_mix = R / MW_mix;
     gamma_mix = cp_mix / (cp_mix - R_mix);
@@ -98,6 +99,10 @@ for i = 1:numel(alpha)
     A_mix = mdot_mix / (v_mix * rho_mix);
     A_a = mdot_a / (v_a * rho_a);
     A_r = mdot_r / (v_r * rho_r);
+    s_mix = (mdot_r / mdot_mix) * (cp_mix * (T_mix - T_r)) + ...
+        (mdot_a / mdot_mix) * (cp_mix * (T_mix - T_a)) + ...
+        (A_mix / (A_a + A_r));
+    s_mix = s_mix / T_mix;
     % Log the results
     results(i).alpha = alpha(i);
     results(i).T_mix = T_mix;
@@ -105,6 +110,9 @@ for i = 1:numel(alpha)
     results(i).cp_mix = cp_mix;
     results(i).A_mix = A_mix;
     results(i).A_rat = A_mix / (A_a + A_r);
+    results(i).A_r = A_r;
+    results(i).A_a = A_a;
+    results(i).s_mix = s_mix;
 end
 
 figure;
@@ -117,7 +125,7 @@ title('Mixture Static Temperature v. Alpha');
 figure;
 hold on;
 xlabel('\alpha');
-ylabel('c_p_,_m_i_x');
+ylabel('c_p_,_m_i_x (J/kg*K)');
 plot([results.alpha], [results.cp_mix]);
 title('Mixture c_p v. Alpha');
 
@@ -142,6 +150,12 @@ ylabel('Mixture Exit Area to Entrance Ratio');
 plot([results.alpha], [results.A_rat]);
 title('Mixture Exit Area to Entrance Ratio v. Alpha');
 
+figure;
+hold on;
+xlabel('\alpha');
+ylabel('Rocket Exit Area (m^2)');
+plot([results.alpha], [results.A_r]);
+title('Rocket Exit Area v. Alpha');
 
 
 

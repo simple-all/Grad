@@ -9,27 +9,52 @@ function Ma = machFromAreaRatio(H, gamma, isSonic)
 maxErr = 1e-6;
 
 if (isSonic == 1)
-	Ma_guess = 2;
+	Ma = 2;
 else
-	Ma_guess = 0.0001;
+	Ma = 0.5;
 end
 
+dir = 1;
+last = 1;
+i = -2;
 err = maxErr + 1;
-while (err > maxErr)
-	Ma_next = Ma_guess - (f(Ma_guess) / fprime(Ma_guess));
-	err = abs(Ma_next - Ma_guess);
-	Ma_guess = Ma_next;
+while (abs(err) > maxErr)
+	H_guess = (1 / Ma) * ((2 + (gamma - 1) * (Ma^2)) / (gamma + 1))^((gamma + 1) / (2 * (gamma - 1)));
+	err = H_guess - H;
+	if isSonic == 1
+		if err > 0
+			dir = -1;
+		else
+			dir = 1;
+		end
+	else
+		if err > 0
+			dir = 1;
+		else
+			dir = -1;
+		end
+	end
+	
+	if dir ~= last
+		i = i - 1;
+	end
+	
+	Ma = Ma + (dir * 2^i);
+	if isSonic == 1
+		if Ma < 1
+			Ma = 1;
+			dir = 1;
+		end
+	else
+		if Ma > 1
+			Ma = 1;
+			dir = -1;
+		end
+	end
+	last = dir;
 end
 
-Ma = Ma_guess;
 
-	function val = f(Ma)
-		val = H - (1 / Ma) * ((2 + (gamma - 1) * (Ma^2)) / (gamma + 1))^((gamma + 1) / (2 * (gamma - 1)));
-	end
-
-	function val = fprime(Ma)
-		val = (1 / Ma^2) * ((2 + (gamma - 1) * (Ma^2)) / (gamma + 1))^((gamma + 1) / (2 * (gamma - 1)));
-		val = val - ((2 + (gamma - 1) * (Ma^2)) / (gamma + 1))^(((gamma + 1) / (2 * (gamma - 1))) - 1);
-	end
 
 end
+
