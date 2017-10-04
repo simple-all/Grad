@@ -17,6 +17,10 @@ classdef inputParser < handle
             obj.np.addParameter(varargin{:});
         end
         
+        function addOptional(obj, varargin)
+            obj.np.addOptional(varargin{:});
+        end
+        
         function addParameter(obj, varargin)
             obj.np.addParameter(varargin{:});
         end

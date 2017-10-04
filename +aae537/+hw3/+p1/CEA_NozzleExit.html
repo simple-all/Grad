@@ -1,0 +1,91 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"><head>
+<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+<title>68461405.html</title>
+<meta name="generator" content="HTML::TextToHTML v2.5201">
+</head>
+<body>
+<pre><hr>
+
+         NASA-GLENN CHEMICAL EQUILIBRIUM PROGRAM CEA2, FEBRUARY 5, 2004
+                   BY  BONNIE MCBRIDE AND SANFORD GORDON
+      REFS: NASA RP-1311, PART I, 1994 AND NASA RP-1311, PART II, 1996
+
+ *******************************************************************************
+
+  
+ prob case=68461405 ro equilibrium
+  
+  
+  ! iac problem
+ o/f 2
+ p,atm = 40
+ pip 40
+ reac
+   fuel  RP-1 wt%=100. t,k=298.15
+   oxid  O2(L) wt%=100. t,k=90.17
+ output    short
+ output trace=1e-5
+ end
+
+              THEORETICAL ROCKET PERFORMANCE ASSUMING EQUILIBRIUM
+
+           COMPOSITION DURING EXPANSION FROM INFINITE AREA COMBUSTOR
+
+ Pin =   587.8 PSIA
+ CASE = 68461405       
+
+             REACTANT                    WT FRACTION      ENERGY      TEMP
+                                          (SEE NOTE)     KJ/KG-MOL      K  
+ FUEL        RP-1                         1.0000000    -24717.700    298.150
+ OXIDANT     O2(L)                        1.0000000    -12979.000     90.170
+
+ O/F=    2.00000  %FUEL= 33.333333  R,EQ.RATIO= 1.702833  PHI,EQ.RATIO= 1.702833
+
+                 CHAMBER   THROAT     EXIT
+ Pinf/P            1.0000   1.7585   40.000
+ P, BAR            40.530   23.048   1.0132
+ T, K             3298.17  3059.10  1802.63
+ RHO, KG/CU M    3.0682 0 1.8966 0 1.4351-1
+ H, KJ/KG         -859.93 -1575.49 -4538.39
+ U, KJ/KG        -2180.91 -2790.72 -5244.44
+ G, KJ/KG        -40683.3 -38512.2 -26304.0
+ S, KJ/(KG)(K)    12.0744  12.0744  12.0744
+
+ M, (1/n)          20.759   20.930   21.228
+ (dLV/dLP)t      -1.01182 -1.00739 -1.00005
+ (dLV/dLT)p        1.2177   1.1455   1.0015
+ Cp, KJ/(KG)(K)    3.7818   3.2932   2.0599
+ GAMMAs            1.1699   1.1777   1.2356
+ SON VEL,M/SEC     1243.1   1196.3    934.0
+ MACH NUMBER        0.000    1.000    2.904
+
+ PERFORMANCE PARAMETERS
+
+ Ae/At                      1.0000   5.8290
+ CSTAR, M/SEC               1786.3   1786.3
+ CF                         0.6697   1.5184
+ Ivac, M/SEC                2212.1   2972.7
+ Isp, M/SEC                 1196.3   2712.4
+
+ MOLE FRACTIONS
+
+ *CO             4.1822-1 4.1789-1 3.9048-1
+ *CO2            7.6858-2 8.1282-2 1.1580-1
+ *H              2.4784-2 1.7256-2 1.7506-4
+ HCO             2.4217-5 1.1938-5 4.0085-8
+ *H2             1.8774-1 1.9219-1 2.3111-1
+ H2O             2.7461-1 2.8114-1 2.6242-1
+ *O              1.1553-3 4.7653-4 7.7025-9
+ *OH             1.5937-2 9.4817-3 1.5125-5
+ *O2             6.5668-4 2.7465-4 3.8666-9
+
+  * THERMODYNAMIC PROPERTIES FITTED TO 20000.K
+
+ NOTE. WEIGHT FRACTION OF FUEL IN TOTAL FUELS AND OF OXIDANT IN TOTAL OXIDANTS
+
+  
+</pre>
+
+
+</body></html>
