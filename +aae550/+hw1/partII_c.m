@@ -73,7 +73,7 @@ while (err > maxErr)
     fLast = f_opt;
     
     x0 = x_opt;
-    rp = rp / 5;
+    rp = rp / 2;
     epsilon = -C * sqrt(rp);
     
     % Update counters

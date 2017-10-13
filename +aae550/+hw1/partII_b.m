@@ -55,11 +55,11 @@ while err > maxErr
     data(j).exitFlag = exitFlag;
     
     [isValid, gx] = aae550.hw1.checkConstraints(gs, x_opt);
-    %assert(isValid, 'Constraints violated!');
+    assert(isValid, 'Constraints violated!');
     err = abs(f_opt - fLast);
     fLast = f_opt;
     x0 = x_opt;
-    rp = rp * 2;
+    rp = rp * 1.1;
     
     % Update counters
     minCount = minCount + 1;
