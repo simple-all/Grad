@@ -13,7 +13,7 @@ aae550.hw1.partII_setup;
 %cs = ones(1, numel(gs));
 % for i = 1e1:1e1:1e10
 rp = 25000000;
-x0 = [0.4; 0.385];
+x0 = [0.44; 0.425];
 [isValid, gx] = aae550.hw1.checkConstraints(gs, x0);
 assert(isValid, 'Starting point not valid!');
 % Scale constraint equations at starting point to the same value
@@ -25,17 +25,19 @@ for i = 1:numel(gs)
     gs{i} = @(x) cs(i) * gs{i}(x);
 end
 
-maxErr = 1e-2;
+maxErr = 1e-12;
 err = inf;
 fLast = inf;
+
+minCount = 0;
+iterationCount = 0;
 j = 0;
 
 epsilon = -0.2;
 C = -epsilon / sqrt(rp);
 while (err > maxErr)
     j = j + 1;
-    % Define penalty coefficient
-
+    
     % Create pseudo-objective function
     objFunc = @(x) aae550.hw1.extLinIntPenalty(f, x, rp, {g1, g2, g3, g4, g5, g6, ...
         g7, g8, g9, g10}, epsilon);
@@ -43,8 +45,8 @@ while (err > maxErr)
     options = optimoptions(@fminunc, 'Display', 'iter', 'PlotFcn', @optimplotfval, ...
         'HessUpdate', 'steepdesc');
     
-    [x_opt, f_opt, exitFlag, output, grad] = fminunc(objFunc, [0.4; 0.35], options);
-    [isValid, gx] = aae550.hw1.checkConstraints(gs, x_opt);
+    [x_opt, f_opt, exitFlag, output, grad] = fminunc(objFunc, x0, options);
+    %[isValid, gx] = aae550.hw1.checkConstraints(gs, x_opt);
     
     % Record values for table
     data(j).minimization = j;
@@ -60,8 +62,12 @@ while (err > maxErr)
     fLast = f_opt;
     
     x0 = x_opt;
-    rp = rp / 10;
+    rp = rp / 5;
     epsilon = -C * sqrt(rp);
+    
+    % Update counters
+    minCount = minCount + 1;
+    iterationCount = iterationCount + output.iterations + 1; % Oh, so now Matlab decides to start indecies at 0
 end
 
 % Make sure final solution is valid
@@ -72,6 +78,10 @@ end
 
 % File name
 fName = [mfilename('fullpath'), '.xlsx'];
+
+if exist(fName, 'file') == 2
+    delete(fName);
+end
 
 % Create table column titles
 gCell = {};

@@ -1,17 +1,24 @@
-function phi_x = extPenalty(f, x, rp, gs, hs)
+function phi_x = extPenalty(f, x, rp, gs, cs, hs)
 %EXTPENALTY Returns the psuedo-objective function value for ext. penalty method
-
-if nargin < 5
-    hs = [];
-end
 
 if nargin < 4
     gs = [];
 end
 
+if nargin < 5
+    cs = ones(size(gs));
+end
+
+if nargin < 6
+    hs = [];
+end
+
+
+
+
 P = 0;
 for i = 1:numel(gs)
-    P = P + max(0, gs{i}(x))^2;
+    P = P + cs(i) * max(0, gs{i}(x))^2;
 end
 
 for i = 1:numel(hs)

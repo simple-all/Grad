@@ -18,22 +18,34 @@ end
 
 % Define penalty coefficient
 rp = 1e3;
-maxErr = 1e-1;
+maxErr = 1e-3;
 err = inf;
 fLast = inf;
-x0 = [0.4; 0.385];
+x0 = [0.3805; 0.3697];
 isValid = 0;
 minCount = 0;
 iterationCount = 0;
 j  = 0;
-while err > maxErr || ~isValid
+while err > maxErr || max(gx) > 1e-4;
     j = j + 1;
+    
+    % Update constraint coefficients
+    dx = 1e-3;
+    gradF = [f(x0 + [dx; 0]) - f(x0 - [dx; 0]); ...
+        f(x0 + [0; dx]) - f(x0 - [0; dx])] ./ (2 * dx);
+    for i = 1:numel(gsOrig)
+        gradG = [gsOrig{i}(x0 + [dx; 0]) - gsOrig{i}(x0 - [dx; 0]); ...
+            gsOrig{i}(x0 + [0; dx]) - gsOrig{i}(x0 - [0; dx])] ./ (2 * dx);
+        cj(i) = norm(gradF) / norm(gradG);
+    end
+    
     % Create pseudo-objective function
-    objFunc = @(x) aae550.hw1.extPenalty(f, x, rp, gs);
+    objFunc = @(x) aae550.hw1.extPenalty(f, x, rp, gs, cj);
     
     options = optimoptions(@fminunc, 'Display', 'iter', 'PlotFcn', @optimplotfval);
     
     [x_opt, f_opt, exitFlag, output, grad] = fminunc(objFunc, [0.4; 0.35], options);
+    [~, gx] = aae550.hw1.checkConstraints(gsOrig, x_opt);
     
     % Record values for table
     data(j).minimization = j;
@@ -41,14 +53,14 @@ while err > maxErr || ~isValid
     data(j).x0 = x0;
     data(j).xOpt = x_opt;
     data(j).fOpt = f(x_opt);
-    [isValid, data(j).gx] = aae550.hw1.checkConstraints(gsOrig, x_opt);
+    data(j).gx = gx;
     data(j).iterations = output.iterations;
     data(j).exitFlag = exitFlag;
     
     err = abs(f_opt - fLast);
     fLast = f_opt;
     x0 = x_opt;
-    rp = rp * 1.1;
+    rp = rp * 5;
     
     % Update counters
     minCount = minCount + 1;
@@ -63,6 +75,10 @@ assert(isValid, 'Solution is invalid!');
 
 % File name
 fName = [mfilename('fullpath'), '.xlsx'];
+
+if exist(fName, 'file') == 2
+    delete(fName);
+end
 
 % Create table column titles
 gCell = {};
