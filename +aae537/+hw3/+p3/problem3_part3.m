@@ -171,6 +171,8 @@ while (abs(Lerr) > tolerance)
             keyboard;
         end
 
+        A_star_1 = A_1 / aeroBox.isoBox.calcARatio(M_1, gamma_1);
+        A_star_2 = A_2 / aeroBox.isoBox.calcARatio(M_2, gamma_2);
         % Put that MF-P to use!
         A_1_temp = (mdot_1 * sqrt(Tt_1)) / (MFP_1 * Pt_1);
         A_2_temp = (mdot_2 * sqrt(Tt_2)) / (MFP_2 * Pt_2);
