@@ -18,7 +18,7 @@ end
 
 % Define penalty coefficient
 rp = 1e3;
-maxErr = 1e-3;
+maxErr = 1e-6;
 err = inf;
 fLast = inf;
 x0 = [0.3805; 0.3697];
@@ -26,25 +26,26 @@ isValid = 0;
 minCount = 0;
 iterationCount = 0;
 j  = 0;
+cj = ones(size(gs));
 while err > maxErr || max(gx) > 1e-4;
     j = j + 1;
     
     % Update constraint coefficients
-    dx = 1e-3;
-    gradF = [f(x0 + [dx; 0]) - f(x0 - [dx; 0]); ...
-        f(x0 + [0; dx]) - f(x0 - [0; dx])] ./ (2 * dx);
-    for i = 1:numel(gsOrig)
-        gradG = [gsOrig{i}(x0 + [dx; 0]) - gsOrig{i}(x0 - [dx; 0]); ...
-            gsOrig{i}(x0 + [0; dx]) - gsOrig{i}(x0 - [0; dx])] ./ (2 * dx);
-        cj(i) = norm(gradF) / norm(gradG);
-    end
+%     dx = 1e-3;
+%     gradF = [f(x0 + [dx; 0]) - f(x0 - [dx; 0]); ...
+%         f(x0 + [0; dx]) - f(x0 - [0; dx])] ./ (2 * dx);
+%     for i = 1:numel(gsOrig)
+%         gradG = [gsOrig{i}(x0 + [dx; 0]) - gsOrig{i}(x0 - [dx; 0]); ...
+%             gsOrig{i}(x0 + [0; dx]) - gsOrig{i}(x0 - [0; dx])] ./ (2 * dx);
+%         cj(i) = norm(gradF) / norm(gradG);
+%     end
     
     % Create pseudo-objective function
     objFunc = @(x) aae550.hw1.extPenalty(f, x, rp, gs, cj);
     
     options = optimoptions(@fminunc, 'Display', 'iter', 'PlotFcn', @optimplotfval);
     
-    [x_opt, f_opt, exitFlag, output, grad] = fminunc(objFunc, [0.4; 0.35], options);
+    [x_opt, f_opt, exitFlag, output, grad] = fminunc(objFunc, x0, options);
     [~, gx] = aae550.hw1.checkConstraints(gsOrig, x_opt);
     
     % Record values for table

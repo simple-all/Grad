@@ -8,7 +8,7 @@ clc;
 % Setup problem
 aae550.hw1.partII_setup;
 
-rp = 2.5e3;
+rp = 8e2;
 maxErr = 1e-3;
 err = inf;
 fLast = inf;
@@ -21,8 +21,9 @@ minCount = 0;
 iterationCount = 0;
 j = 0;
 while err > maxErr
-    % Update contraint coefficients
     j = j + 1;
+    
+    % Update contraint coefficients
     dx = 1e-2;
     gradF = [f(x0 + [dx; 0]) - f(x0 - [dx; 0]); ...
         f(x0 + [0; dx]) - f(x0 - [0; dx])] ./ (2 * dx);
@@ -54,11 +55,11 @@ while err > maxErr
     data(j).exitFlag = exitFlag;
     
     [isValid, gx] = aae550.hw1.checkConstraints(gs, x_opt);
-    assert(isValid, 'Constraints violated!');
+    %assert(isValid, 'Constraints violated!');
     err = abs(f_opt - fLast);
     fLast = f_opt;
     x0 = x_opt;
-    rp = rp * 1.01;
+    rp = rp * 2;
     
     % Update counters
     minCount = minCount + 1;

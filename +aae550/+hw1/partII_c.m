@@ -38,6 +38,17 @@ C = -epsilon / sqrt(rp);
 while (err > maxErr)
     j = j + 1;
     
+    % Update contraint coefficients
+    dx = 1e-2;
+    gradF = [f(x0 + [dx; 0]) - f(x0 - [dx; 0]); ...
+        f(x0 + [0; dx]) - f(x0 - [0; dx])] ./ (2 * dx);
+    for i = 1:numel(gsOrig)
+        gradG = [gsOrig{i}(x0 + [dx; 0]) - gsOrig{i}(x0 - [dx; 0]); ...
+            gsOrig{i}(x0 + [0; dx]) - gsOrig{i}(x0 - [0; dx])] ./ (2 * dx);
+        cj(i) = norm(gradF) / norm(gradG);
+        gs{i} = @(x) cj(i) * gsOrig{i}(x);
+    end
+    
     % Create pseudo-objective function
     objFunc = @(x) aae550.hw1.extLinIntPenalty(f, x, rp, {g1, g2, g3, g4, g5, g6, ...
         g7, g8, g9, g10}, epsilon);
