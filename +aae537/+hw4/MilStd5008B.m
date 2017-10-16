@@ -1,6 +1,5 @@
 function prat = MilStd5008B(M)
-%MILSTD5008B Summary of this function goes here
-%   Detailed explanation goes here
+%MILSTD5008B Stagnation pressure ratio standard inlet calculation
 
 if (M < 1)
     prat = 1;

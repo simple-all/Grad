@@ -4,6 +4,8 @@ function [engineData, mixError] = solveEngine(varargin)
 % mixError is the percent error between bypass and core pressures before
 % mixing (if relevant)
 
+mixError = [];
+
 np = aeroBox.inputParser();
 
 % Required inputs
@@ -75,7 +77,7 @@ if isempty(np.results.A5_c) && ~isempty(np.results.M5_c)
     rho5_c = P5_c / (R * T5_c);
     
     u5_c = np.results.M5_c * sqrt(gamma * R * T5_c); % Velocity
-    A5_c = m_c / (rho5_c * u5_c); % Area at the end of the turbine
+    A5_c = (m_c * (1 + f)) / (rho5_c * u5_c); % Area at the end of the turbine
 end
 
 % Mixing: 5 -> 6
@@ -89,7 +91,7 @@ else
     if ~isempty(np.results.M5_b) && ~isempty(np.results.A5_c)
         % Bypass stream defined, find static pressure
         P5 = calcStaticPressure('Pt', Pt5, 'gamma', gamma, 'mach', np.results.M5_b);
-        
+        P5_c = P5;
         % Find out what the core needs to look like in order to match pressures
         M5_c = machFromPressureRatio('Prat', P5 / Pt5, 'gamma', gamma);
         T5_c = calcStaticTemp('Tt', Tt5, 'gamma', gamma, 'mach', M5_c);
@@ -122,12 +124,14 @@ end
 % Afterburner: 6 -> 7
 if ~isempty(np.results.Tt7)
     f_ab = ((np.results.Tt7 / Tt6) - 1) / (((np.results.eta_ab * np.results.h) / (Tt6 * cp)) - (np.results.Tt7 / Tt6));
-    Tt7 = np.reuslts.Tt7;
+    Tt7 = np.results.Tt7;
     Pt7 = Pt6;
+    m7 = m6 * (1 + f_ab);
 else
     % No afterburning
     Tt7 = Tt6;
     Pt7 = Pt6;
+    m7 = m6;
 end
 
 % Nozzle: 7 -> 9
@@ -141,12 +145,10 @@ Pt9 = calcStagPressure('Ps', 'P9', 'gamma', gamma, 'mach', M9);
 % Calculate thrust
 thrust = m6 * u9 - np.results.m_dot * np.results.M0 * sqrt(gamma * R * np.results.T0); % lbf
 if exist('f_ab')
-    SFC = (f * m_c + f_ab * (f * m_c)) / thrust;
+    SFC = (f * m_c + f_ab * (m6)) / thrust;
 else
     SFC = f * m_c / thrust;
 end
-
-keyboard;
 
 engineData.SFC = SFC;
 engineData.thrust = thrust;
