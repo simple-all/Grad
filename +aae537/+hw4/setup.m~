@@ -1,0 +1,12 @@
+% Thomas Satterly
+% AAE 537
+% Homework 4
+
+% Basic setup scripts, defines parameters constant throughout the problem
+
+h = 18500; % Kersone heating value, BTU/lbm
+eta_c = 0.88; % Compressor efficiency
+eta_b = 0.95; % Burner efficiency
+eta_t = 0.9; % Turbine efficiency
+eta_ab = 0.9; % Afterburner efficiency
+eta_n = 0.9; % Nozzle effici
