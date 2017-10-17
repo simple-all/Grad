@@ -1,6 +1,6 @@
 % Thomas Satterly
 % AAE 550
-% HW 1, Part II (c)
+% HW 1, Part II (d)
 clear;
 close all;
 

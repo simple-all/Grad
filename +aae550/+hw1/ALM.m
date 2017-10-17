@@ -1,5 +1,6 @@
-function A = intPenalty(f, x, rp, gs, lambda)
-%INTPENALTY Returns the psuedo-objective function value for int. penalty method
+function A = ALM(f, x, rp, gs, lambda)
+%ALM Returns the psuedo-objective function value augmented Lagrange matrix
+%method
 
 if nargin < 4
     gs = [];
