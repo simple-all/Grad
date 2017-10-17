@@ -10,6 +10,5 @@ assert(all(size(P) == [2, 1]));
 
 h = K; % woo
 
-
 end
 

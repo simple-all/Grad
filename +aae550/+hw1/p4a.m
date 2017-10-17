@@ -24,3 +24,10 @@ options = optimoptions(@fminunc, 'Algorithm', 'quasi-newton', ...
     'GradObj', 'off', 'Display', 'iter');
 
 [x_opt, f_opt, exitFlag, output, grad] = fminunc(func, x0, options);
+
+
+fprintf('Iterations: %d\n', output.iterations);
+fprintf('Function Calls: %d\n', output.funcCount);
+fprintf('Exit Flag %d\n', exitFlag);
+fprintf('f(x*): %0.6f\n', f_opt);
+fprintf('x*: [%0.6f; %0.6f]\n', x_opt(1), x_opt(2));
