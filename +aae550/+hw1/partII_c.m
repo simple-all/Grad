@@ -25,7 +25,7 @@ for i = 1:numel(gs)
     gs{i} = @(x) cs(i) * gs{i}(x);
 end
 
-maxErr = 1e-12;
+maxErr = 1e-6;
 err = inf;
 fLast = inf;
 
