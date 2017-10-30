@@ -1,0 +1,16 @@
+classdef BurnerSegment < aeroBox.flowFields.BurnerFlow
+    %BURNERSEGMENT Burner with rectangular cross section, linear varying area
+    
+    properties
+    end
+    
+    methods
+        function obj = BurnerSegment()
+            % Create with rectangular type
+            obj@aeroBox.flowFields.BurnerFlow();
+            obj.setGeometry(aeroBox.geometric.Rectangular());
+        end
+    end
+    
+end
+
