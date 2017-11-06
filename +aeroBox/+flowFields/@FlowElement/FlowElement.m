@@ -58,7 +58,7 @@ classdef FlowElement < handle
         
         function setStaticPressure(obj, p)
             % Sets the flow properties to match the desired static pressure
-            obj.Tt = aeroBox.isoBox.calcStagPressure('mach', obj.M, 'Ts', p, 'gamma', obj.gamma);
+            obj.Tt = aeroBox.isoBox.calcStagPressure('mach', obj.M, 'Ps', p, 'gamma', obj.gamma);
         end
         
         function r = rho(obj)

@@ -74,7 +74,6 @@ for i = 1:numel(states)
     x(i) = states{i}.x;
     T(i) = flow.T();
     P(i) = flow.P();
-    Pt(i) = flow.Pt();
     M(i) = flow.M();
     mdot(i) = flow.mdot();
     u(i) = flow.u();
@@ -90,14 +89,8 @@ title('Temperature Profile');
 figure;
 plot(x, P);
 xlabel('Distance');
-ylabel('Static Pressure [Pa]');
-title('Static Pressure Profile');
-
-figure;
-plot(x, Pt);
-xlabel('Distance');
-ylabel('Stagnation Pressure [Pa]');
-title('Stagnation Pressure Profile');
+ylabel('Pressure [Pa]');
+title('Pressure Profile');
 
 figure;
 plot(x, M);
@@ -114,7 +107,7 @@ title('Mass Flow Rate Profile');
 figure;
 plot(x, u);
 xlabel('Distance');
-ylabel('Flow Velocity [m/s]');
-title('Flow Velocity Profile');
+ylabel('Flow  [kg/s]');
+title('Mass Flow Rate Profile');
 
 

@@ -57,6 +57,11 @@ classdef BurnerFlow < handle
                 
                 endFlow.setMassFlow(endFlow.mdot + obj.injectionFunc(x) * stepSize);
                 
+                P = lastFlow.P * (obj.geometry.getArea(x) / obj.geometry.getArea(x - stepSize)) * (endFlow.M / lastFlow.M) * sqrt(endFlow.T / lastFlow.T);
+                
+                Pt = aeroBox.isoBox.calcStagPressure('mach', endFlow.M, 'Ps', P, 'gamma', endFlow.gamma);
+                endFlow.setStagnationPressure(Pt);
+                
                 lastFlow = endFlow.getCopy();
             end
             states{end + 1} = genState(x, lastFlow);
