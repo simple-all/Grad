@@ -117,4 +117,6 @@ xlabel('Distance');
 ylabel('Flow Velocity [m/s]');
 title('Flow Velocity Profile');
 
+fprintf('Jet Thrust: %0.4
+
 
