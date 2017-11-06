@@ -18,12 +18,12 @@ x0 = [0.44; 0.425];
 assert(isValid, 'Starting point not valid!');
 % Scale constraint equations at starting point to the same value
 %cs = [1e4 1e0 1e4 1e0 1e2 1e10 1e9 1 1 1e2];
-cs = min(gx) ./ gx;
-%cs = [1 1 1 1 1 1 1 1 1 1];
-%cs = [1 1 1 1 1 1 1 1 1 1];
-for i = 1:numel(gs)
-    gs{i} = @(x) cs(i) * gs{i}(x);
-end
+% cs = min(gx) ./ gx;
+% %cs = [1 1 1 1 1 1 1 1 1 1];
+% %cs = [1 1 1 1 1 1 1 1 1 1];
+% for i = 1:numel(gs)
+%     gs{i} = @(x) cs(i) * gs{i}(x);
+% end
 
 maxErr = 1e-6;
 err = inf;
