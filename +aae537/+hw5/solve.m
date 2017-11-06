@@ -11,7 +11,7 @@ burnerElement2 = aae537.hw5.BurnerSegment();
 burnerElement3 = aae537.hw5.BurnerSegment();
 
 % Set up the geometry
-w = 20; % need to calculate this
+w = 1.067724; % need to calculate this
 h = w / 5;
 
 burnerElement1.geometry.setWidth(w);
@@ -46,7 +46,7 @@ startFlow.setStagnationPressure(aeroBox.isoBox.calcStagPressure('mach', M0, 'gam
 burnerElement1.setFlowElement(startFlow);
 
 %dmdot_dt = @(x) 1.5319 * (-(1 / pi) * (cos(pi * x) - 1)) / x;
-dmdot_dt = @(x) 0.15319 * sin(pi * x);
+dmdot_dt = @(x) 1.5319 * sin(pi * x);
 
 burnerElement1.setMassFlowRate(mdot);
 burnerElement1.setHeatingValue(h);
@@ -74,8 +74,10 @@ for i = 1:numel(states)
     x(i) = states{i}.x;
     T(i) = flow.T();
     P(i) = flow.P();
+    Pt(i) = flow.Pt();
     M(i) = flow.M();
     mdot(i) = flow.mdot();
+    u(i) = flow.u();
 end
 
 figure;
@@ -88,8 +90,14 @@ title('Temperature Profile');
 figure;
 plot(x, P);
 xlabel('Distance');
-ylabel('Pressure [Pa]');
-title('Pressure Profile');
+ylabel('Static Pressure [Pa]');
+title('Static Pressure Profile');
+
+figure;
+plot(x, Pt);
+xlabel('Distance');
+ylabel('Stagnation Pressure [Pa]');
+title('Stagnation Pressure Profile');
 
 figure;
 plot(x, M);
@@ -102,5 +110,11 @@ plot(x, mdot);
 xlabel('Distance');
 ylabel('Mass Flow Rate [kg/s]');
 title('Mass Flow Rate Profile');
+
+figure;
+plot(x, u);
+xlabel('Distance');
+ylabel('Flow Velocity [m/s]');
+title('Flow Velocity Profile');
 
 
