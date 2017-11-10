@@ -1,5 +1,6 @@
 classdef BurnerFlow < handle
     %BURNERFLOW Flow with fast kinetic burning
+    % Created by Thomas Satterly
     
     properties (SetAccess = private)
         flowElement;

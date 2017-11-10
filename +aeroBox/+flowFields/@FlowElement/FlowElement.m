@@ -1,5 +1,6 @@
 classdef FlowElement < handle
     %FLOW Basic flow element
+    % Created by Thomas Satterly
     properties (SetAccess = private)
         gamma; % Ratio of specific heats
         cp; % Specific heat at constant pressure
