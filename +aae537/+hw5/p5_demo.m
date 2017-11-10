@@ -1,16 +1,16 @@
 % Thomas Satterly
 % AAE 537
-% Homework 5
+% Homework 5, part iv (graph of optimal solution)
 clear;
 close all;
 
 % Set up the burner elements
 
-angle1 = 3.3333333333;
-angle2 = 10;
-angle3 = 10;
+angle1 = 2.11402105;
+angle2 = 8.32058947;
+angle3 = 14;
 
-numSteps = 100;
+numSteps = 1000;
 
 burnerElement1 = aae537.hw5.BurnerSegment();
 burnerElement2 = aae537.hw5.BurnerSegment();
@@ -51,7 +51,6 @@ startFlow.setStagnationTemperature(aeroBox.isoBox.calcStagTemp('mach', M0, 'gamm
 startFlow.setStagnationPressure(aeroBox.isoBox.calcStagPressure('mach', M0, 'gamma', gamma, 'Ps', 1117) * pr);
 burnerElement1.setFlowElement(startFlow);
 
-%dmdot_dt = @(x) 1.5319 * (-(1 / pi) * (cos(pi * x) - 1)) / x;
 dmdot_dt = @(x) 1.5319 * sin(pi * x);
 
 burnerElement1.setMassFlowRate(mdot);
@@ -79,6 +78,7 @@ for i = 1:numel(states)
     flow = states{i}.flow;
     x(i) = states{i}.x;
     T(i) = flow.T();
+    Tt(i) = flow.Tt();
     P(i) = flow.P();
     Pt(i) = flow.Pt();
     M(i) = flow.M();
@@ -92,6 +92,11 @@ xlabel('Distance');
 ylabel('Temperature [K]');
 title('Temperature Profile');
 
+figure;
+plot(x, Tt);
+xlabel('Distance');
+ylabel('Stagnation Temperature [K]');
+title('Stagnation Temperature Profile');
 
 figure;
 plot(x, P);
@@ -122,5 +127,7 @@ plot(x, u);
 xlabel('Distance');
 ylabel('Flow Velocity [m/s]');
 title('Flow Velocity Profile');
+
+fprintf('Jet Thrust: %0.3f kN\n', u(end) * mdot(end) / 1e3);
 
 

@@ -1,6 +1,6 @@
 classdef BurnerSegment < aeroBox.flowFields.BurnerFlow
     %BURNERSEGMENT Burner with rectangular cross section, linear varying area
-    
+    % Created by Thomas Satterly
     properties
     end
     

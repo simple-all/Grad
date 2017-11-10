@@ -1,6 +1,6 @@
 % Thomas Satterly
 % AAE 537
-% Homework 5
+% Homework 5, part iv (optimization)
 clear;
 close all;
 
@@ -9,8 +9,13 @@ num1 = 20;
 num2 = 20;
 num3 = 1;
 numSteps = 1000;
-angle1 = linspace(0, 5, num1);
-angle2 = linspace(6, 11, num2);
+
+angle1c = 2.11452631631579;
+angle2c = 8.32210526105264;
+step = 0.0032;
+
+angle1 = linspace(angle1c - step, angle1c + step, num1);
+angle2 = linspace(angle2c - step, angle2c + step, num2);
 angle3 = 10;
 
 thrust = zeros(num1, num2, num3);
@@ -57,7 +62,6 @@ parfor i = 1:num1
             startFlow.setStagnationPressure(aeroBox.isoBox.calcStagPressure('mach', M0, 'gamma', gamma, 'Ps', 1117) * pr);
             burnerElement1.setFlowElement(startFlow);
             
-            %dmdot_dt = @(x) 1.5319 * (-(1 / pi) * (cos(pi * x) - 1)) / x;
             dmdot_dt = @(x) 1.5319 * sin(pi * x);
             
             burnerElement1.setMassFlowRate(mdot);
