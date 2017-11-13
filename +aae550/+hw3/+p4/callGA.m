@@ -18,6 +18,7 @@ pMutation = (l + 1) / (2 * nPop * l);
 
 options(11) = nPop; % Set the population size
 options(13) = pMutation; % Set the mutation probability
+options(14) = 1e6;
 %	OPTIONS(11)-Population size (fixed)
 %	OPTIONS(12)-Probability of crossover
 %	OPTIONS(13)-Probability of mutation
