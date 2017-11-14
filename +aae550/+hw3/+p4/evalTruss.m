@@ -29,7 +29,7 @@ sigmas = aae550.hw3.p4.stressHW3(A,E);
 g = zeros(1, numel(sigmas));
 for i = 1:numel(sigmas)
     % Assert that stress is less than yeild for each beam
-    g(i) = (sigmas(i) / sigma_y(i)) - 1;
+    g(i) = (abs(sigmas(i)) / sigma_y(i)) - 1;
 end
 
 % Calculate penalty
