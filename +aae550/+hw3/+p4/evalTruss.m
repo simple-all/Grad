@@ -28,15 +28,17 @@ sigmas = aae550.hw3.p4.stressHW3(A,E);
 % Check constraints
 g = zeros(1, numel(sigmas));
 for i = 1:numel(sigmas)
-    % Assert that stress is less than yeild for each beam
-    g(i) = (abs(sigmas(i)) / sigma_y(i)) - 1;
+    for j = -1:2:1
+        % Assert that stress is less than yeild for each beam
+        g(i) = (abs(sigmas(i)) / (j * sigma_y(i))) - 1;
+    end
 end
 
 % Calculate penalty
 P = 0;
 for i = 1:numel(g)
     % Linear exterior penalty
-    P = P + pMult * max(0, g(i));
+    P = P + max(0, g(i));
 end
 
 % Get mass
@@ -48,7 +50,7 @@ for i = 1:numel(materials)
     mass = mass + L(i) * rho(i) * A(i);
 end
 
-phi = mass + P;
+phi = mass + pMult * P;
 
     function [E, rho, sigma_y] = getMaterial(x)
         % Gets the material properties
