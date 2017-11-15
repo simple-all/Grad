@@ -1,3 +1,8 @@
+% Thomas Satterly
+% AAE 550, HW 3
+% Problem 4
+
+
 close all;
 clear;
 

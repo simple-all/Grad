@@ -1,7 +1,11 @@
 function [phi, g] = evalTruss(x, pMult)
-%EVALTRUSS Summary of this function goes here
-%   Detailed explanation goes here
+%EVALTRUSS Fitness function for the truss, linear exterior penalty
 
+% Thomas Satterly
+% AAE 550, HW 3
+% Problem 4
+
+% Default penalty multiplier
 if nargin < 2
     pMult = 10;
 end
@@ -14,23 +18,27 @@ end
 % x(5) = Beam 3 material
 % x(6) = Beam 3 cross section area [m^2]
 
-A = x(2:2:6);
-materials = x(1:2:5);
+A = x(2:2:6); % Cross section area
+materials = x(1:2:5); % Material selection
+
+% Preallocate arrays
 E = zeros(1, numel(materials));
 rho = zeros(1, numel(materials));
 sigma_y = zeros(1, numel(materials));
+
+% Get material properties for each beam
 for i = 1:numel(materials)
     [E(i), rho(i), sigma_y(i)] = getMaterial(materials(i));
 end
 
+% Get the stress on each beam
 sigmas = aae550.hw3.p4.stressHW3(A,E);
 
 % Check constraints
 g = zeros(1, numel(sigmas));
 for i = 1:numel(sigmas)
     for j = -1:2:1
-        % Assert that stress is less than yeild for each beam
-        g(i) = (abs(sigmas(i)) / (j * sigma_y(i))) - 1;
+        g(((i - 1) * 2) + (j + 1) / 2 + 1) = (sigmas(i) / (j * sigma_y(i))) - 1;
     end
 end
 
@@ -50,6 +58,7 @@ for i = 1:numel(materials)
     mass = mass + L(i) * rho(i) * A(i);
 end
 
+% Fitness function
 phi = mass + pMult * P;
 
     function [E, rho, sigma_y] = getMaterial(x)
