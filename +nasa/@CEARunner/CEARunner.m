@@ -14,7 +14,7 @@ classdef CEARunner < handle
             if ispc
                 onPath = any(strcmpi(CEAPath, currPath));
             else
-                onPath = any(strcmp(CEAPathm, currPath));
+                onPath = any(strcmp(CEAPath, currPath));
             end
             
             if ~onPath

@@ -5,8 +5,8 @@ clear;
 close all;
 
 % Set up the burner elements
-num1 = 20;
-num2 = 20;
+num1 = 1;
+num2 = 1;
 num3 = 1;
 numSteps = 1000;
 
@@ -19,32 +19,26 @@ angle2 = linspace(angle2c - step, angle2c + step, num2);
 angle3 = 10;
 
 thrust = zeros(num1, num2, num3);
+dmdot_dt = @(x) abs(1.5319 * sin(pi * x));
 
-parfor i = 1:num1
+for i = 1:num1
     for j = 1:num2
         for k = 1:num3
-            burnerElement1 = aae537.hw5.BurnerSegment();
-            burnerElement2 = aae537.hw5.BurnerSegment();
-            burnerElement3 = aae537.hw5.BurnerSegment();
+            
+            burner = aae550.final.Burner();
             
             % Set up the geometry
             w = 1.067724; % need to calculate this
             h = w / 5;
             
-            burnerElement1.geometry.setWidth(w);
-            burnerElement1.geometry.setHeight(h);
-            burnerElement1.geometry.setLength(1);
-            burnerElement1.geometry.setAngle(angle1(i));
             
-            burnerElement2.geometry.setWidth(w);
-            burnerElement2.geometry.setHeight(burnerElement1.geometry.getHeight(burnerElement1.geometry.getLength()));
-            burnerElement2.geometry.setLength(1);
-            burnerElement2.geometry.setAngle(angle2(j));
             
-            burnerElement3.geometry.setWidth(w);
-            burnerElement3.geometry.setHeight(burnerElement2.geometry.getHeight(burnerElement2.geometry.getLength()));
-            burnerElement3.geometry.setLength(1);
-            burnerElement3.geometry.setAngle(angle3(k));
+            angles = [angle1(i), angle2(k), angle3(k)];
+            widths = [w w w];
+            heights = [h h h];
+            lengths = [1 1 1];
+            
+            
             
             % Setup the initial flow
             gamma = 1.4;
@@ -60,33 +54,23 @@ parfor i = 1:num1
             startFlow.setMach(M3);
             startFlow.setStagnationTemperature(aeroBox.isoBox.calcStagTemp('mach', M0, 'gamma', gamma, 'Ts', 227));
             startFlow.setStagnationPressure(aeroBox.isoBox.calcStagPressure('mach', M0, 'gamma', gamma, 'Ps', 1117) * pr);
-            burnerElement1.setFlowElement(startFlow);
+            startFlow.setMassFlow(mdot);
             
-            dmdot_dt = @(x) 1.5319 * sin(pi * x);
+            burner.setGeometry(widths, heights, lengths, angles);
+            burner.setHeatingValue(h);
+            burner.setInjectionFunc(dmdot_dt);
+            burner.setStartFlow(startFlow);
             
-            burnerElement1.setMassFlowRate(mdot);
-            burnerElement1.setHeatingValue(h);
-            burnerElement1.setInjectionFunc(dmdot_dt);
-            
-            burnerElement2.setHeatingValue(h);
-            burnerElement2.setInjectionFunc(dmdot_dt);
-            
-            burnerElement3.setHeatingValue(h);
-            burnerElement3.setInjectionFunc(dmdot_dt);
             
             % Setup solver
             
             
-            [tempFlow, states1] = burnerElement1.solve(numSteps, 0);
-            burnerElement2.setFlowElement(tempFlow);
-            [tempFlow, states2] = burnerElement2.solve(numSteps, 1);
-            burnerElement3.setFlowElement(tempFlow);
-            [exitFlow, states3] = burnerElement3.solve(numSteps, 2);
+            burner.solve();
             
-            states = [states1 states2 states3];
-            M = zeros(numSteps * 3 + 3);
-            u = zeros(numSteps * 3 + 3);
-            for l = 1:(numSteps * 3 + 3)
+            states = burner.states;
+            M = zeros(1, numel(states));
+            u = zeros(1, numel(states));
+            for l = 1:numel(states)
                 flow = states{l}.flow;
                 M(l) = flow.M();
                 mdot(l) = flow.mdot();
