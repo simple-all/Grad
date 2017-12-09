@@ -1,0 +1,17 @@
+function [f, gradf] = fx(angles)
+%FX Summary of this function goes here
+%   Detailed explanation goes here
+
+f = aae550.final.getBurnerThrust(angles);
+
+grads = numel(angles);
+gradf = zeros(grads, 1);
+step = nudest(1);
+parfor i = 1:grads
+    mod = zeros(1, grads);
+    mod(i) = step;
+    gradf(i, 1) = (aae550.final.getBurnerThrust(angles + mod) - f) / step;
+end
+
+end
+

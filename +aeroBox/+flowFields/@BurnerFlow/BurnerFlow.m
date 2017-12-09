@@ -94,25 +94,32 @@ classdef BurnerFlow < handle
                 end
                 
                 dTt_dx = lastFlow.Tt * (1 / lastFlow.mdot) * injectionFH(x) * (obj.h / (lastFlow.cp * lastFlow.Tt) - 1);
-                Tt = lastFlow.Tt + dTt_dx * stepSize; 
+                Tt = lastFlow.Tt + dTt_dx * stepSize;
                 endFlow.setStagnationTemperature(Tt);
                 
                 
                 dM_dx = lastFlow.M * ((1 + ((lastFlow.gamma - 1) / 2) * lastFlow.M^2) / (1 - lastFlow.M^2)) * ...
                     ((-1 / obj.geometry.getArea(x - stepSize)) * obj.geometry.getRateOfAreaChange + ...
                     ((1 + lastFlow.gamma * lastFlow.M^2) / 2) * (1 / lastFlow.Tt) * dTt_dx);
+                nextMach = max(1, lastFlow.M + stepSize * dM_dx);
+                if nextMach == 1
+                    %keyboard;
+                end
                 endFlow.setMach(lastFlow.M + stepSize * dM_dx);
                 
                 endFlow.setMassFlow(endFlow.mdot + injectionFH(x) * stepSize);
                 
-                P = lastFlow.P * (obj.geometry.getArea(x) / obj.geometry.getArea(x - stepSize)) * (endFlow.M / lastFlow.M) * sqrt(endFlow.T / lastFlow.T);
+                P = lastFlow.P * (obj.geometry.getArea(x - stepSize) / obj.geometry.getArea(x)) * (lastFlow.M / endFlow.M) * sqrt(endFlow.T / lastFlow.T);
                 
                 Pt = aeroBox.isoBox.calcStagPressure('mach', endFlow.M, 'Ps', P, 'gamma', endFlow.gamma);
                 endFlow.setStagnationPressure(Pt);
-                
-                params = obj.cea.run('prob', 'tp', 'p(bar)', P/1e5, 't,k', endFlow.T(), 'reac', 'name', 'Air', 'wt%', 100, 'end');
-                endFlow.setGamma(params.output.gamma);
-                endFlow.setCp(params.output.cp * 1e3);
+                try
+                    params = obj.cea.run('prob', 'tp', 'p(bar)', P/1e5, 't,k', endFlow.T(), 'reac', 'name', 'Air', 'wt%', 100, 'end');
+                    endFlow.setGamma(params.output.gamma);
+                    endFlow.setCp(params.output.cp * 1e3);
+                catch
+                    warning('CEA error....');
+                end
                 lastFlow = endFlow.getCopy();
             end
             states{end + 1} = genState(x, lastFlow);
