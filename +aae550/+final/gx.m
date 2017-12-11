@@ -1,8 +1,8 @@
-function [g, h, gradg, gradh] = gx(angles, obj, maxAngleDiff, minMach, minEndMach)
+function [g, h, gradg, gradh] = gx(angles, obj, maxAngleDiff, minMach, minEndMach, maxTemp)
 %GX Summary of this function goes here
 %   Detailed explanation goes here
 
-ggx = @(x) aae550.final.ggx(x, obj, maxAngleDiff, minMach, minEndMach);
+ggx = @(x) aae550.final.ggx(x, obj, maxAngleDiff, minMach, minEndMach, maxTemp);
 [g, h] = ggx(angles);
 
 if nargout == 4

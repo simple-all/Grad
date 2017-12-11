@@ -1,6 +1,6 @@
-function [Thrust, M] = getBurnerThrust(angles)
+function [Thrust, M, T] = getBurnerThrust(angles)
 
-dmdot_dt = @(x) 1.3 * ((x <= 0.5) * sin(pi * x) + ...
+dmdot_dt = @(x) 1 * ((x <= 0.5) * sin(pi * x) + ...
     (x > 0.5) * (x <= 2.5) * 1 + ...
     (x > 2.5) * (x <= 3) * sin(pi * (x - 2))) + ...
     (x > 3) * 0;
@@ -9,7 +9,7 @@ dmdot_dt = @(x) 1.3 * ((x <= 0.5) * sin(pi * x) + ...
 Pa = 5474.89; % [Pa] Ambient Pressure
 Ta = 216.65; % [K] Ambient Temperature
 burner = aae550.final.Burner();
-burner.setMaxStep(1e-1);
+burner.setMaxStep(1e-2);
 
 % Set up the geometry
 w = 1.067724; % need to calculate this
@@ -62,14 +62,14 @@ for l = 1:numel(states)
     flow = states{l}.flow;
     M(l) = flow.M();
      mdot(l) = flow.mdot();
-%     u(l) = flow.u();
-%     Pt(l) = flow.Pt();
-%     Tt(l) = flow.Tt();
-%     R(l) =flow.R();
-%     cp(l) = flow.cp();
-%     T(l) = flow.T();
-%     P(l) = flow.P();
-%     gamma(l) = flow.gamma();
+%    u(l) = flow.u();
+%    Pt(l) = flow.Pt();
+%    Tt(l) = flow.Tt();
+%    R(l) =flow.R();
+%    cp(l) = flow.cp();
+    T(l) = flow.T();
+%   P(l) = flow.P();
+%    gamma(l) = flow.gamma();
 end
 if any(M < 1)
     Thrust = 1;

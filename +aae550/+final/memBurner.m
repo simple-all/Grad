@@ -7,13 +7,15 @@ classdef memBurner < handle
         
         function obj = memBurner()
             obj.fh = @(x) aae550.final.getBurnerThrust(x);
-            obj.fh = memoize(obj.fh);
+            try %#ok<TRYNC>
+                obj.fh = memoize(obj.fh);
+            end
         end
         
-        function [Thrust, M] = getBurnerThrust(obj, angles)
+        function [Thrust, M, T] = getBurnerThrust(obj, angles)
             %MEMGETBURNERTHRUST Summary of this function goes here
             %   Detailed explanation goes here
-            [Thrust, M] = obj.fh(angles);
+            [Thrust, M, T] = obj.fh(angles);
         end
     end
 end

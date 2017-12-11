@@ -1,4 +1,4 @@
-function [g, h] = ggx(angles, obj, maxAngleDiff, minMach, minEndMach)
+function [g, h] = ggx(angles, obj, maxAngleDiff, minMach, minEndMach, maxTemp)
 %GX Summary of this function goes here
 %   Detailed explanation goes here
 
@@ -11,10 +11,16 @@ for i = 1:numel(angles) - 1
 end
 
 % Assert the minimum Mach 
-[~, M] = obj.getBurnerThrust(angles);
+[~, M, T] = obj.getBurnerThrust(angles);
 startInd = size(g, 2);
 for i = 1:numel(M)
     g(1, startInd + i) = 1 - (M(i) / minMach);
+end
+
+% Assert maximum temperature
+startInd = size(g, 2);
+for i = 1:numel(T)
+    g(1, startInd + i) = (T(i) / maxTemp) - 1;
 end
 
 % Assert the minimum end Mach
