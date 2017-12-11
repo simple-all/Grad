@@ -1,9 +1,0 @@
-function [g, h] = gx(angles)
-%GX Summary of this function goes here
-%   Detailed explanation goes here
-% Assert that sequential angles differ by less than 2 degrees
-g = -ones(1, numel(angles));
-h = [];
-
-end
-
