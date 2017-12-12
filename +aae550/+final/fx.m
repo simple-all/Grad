@@ -1,6 +1,5 @@
 function [f, gradf] = fx(angles, obj)
-%FX Summary of this function goes here
-%   Detailed explanation goes here
+%FX Objective function and gradient definition
 disp(angles);
 ffx = @(x) 1 / obj.getBurnerThrust(x) * 1e6;
 f = ffx(angles);

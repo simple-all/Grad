@@ -1,6 +1,5 @@
 function [g, h, gradg, gradh] = gx(angles, obj, maxAngleDiff, minMach, minEndMach, maxTemp)
-%GX Summary of this function goes here
-%   Detailed explanation goes here
+%GX Nonlinear constraing function and gradient
 
 ggx = @(x) aae550.final.ggx(x, obj, maxAngleDiff, minMach, minEndMach, maxTemp);
 [g, h] = ggx(angles);

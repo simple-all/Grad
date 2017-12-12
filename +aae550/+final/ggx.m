@@ -1,6 +1,5 @@
 function [g, h] = ggx(angles, obj, maxAngleDiff, minMach, minEndMach, maxTemp)
-%GX Summary of this function goes here
-%   Detailed explanation goes here
+%GX Nonlinear constraint function
 
 
 % Assert that sequential angles differ by less than 2 degrees

@@ -1,5 +1,6 @@
 function [Thrust, M, T] = getBurnerThrust(angles)
 
+% Designated fuel flow rate
 dmdot_dt = @(x) 1 * ((x <= 0.5) * sin(pi * x) + ...
     (x > 0.5) * (x <= 2.5) * 1 + ...
     (x > 2.5) * (x <= 3) * sin(pi * (x - 2))) + ...
@@ -9,7 +10,7 @@ dmdot_dt = @(x) 1 * ((x <= 0.5) * sin(pi * x) + ...
 Pa = 5474.89; % [Pa] Ambient Pressure
 Ta = 216.65; % [K] Ambient Temperature
 burner = aae550.final.Burner();
-burner.setMaxStep(1e-1);
+burner.setMaxStep(1e-2);
 
 % Set up the geometry
 w = 1.067724; % need to calculate this
@@ -78,6 +79,25 @@ else
     Me = aeroBox.isoBox.machFromPressureRatio('Prat', Pa / endFlow.Pt, 'gamma', endFlow.gamma);
     ue = Me * endFlow.getSonicVelocity();
     Thrust = ue * endFlow.mdot();
+end
+
+shouldPlot = 1;
+if shouldPlot
+    figure;
+    subplot(1, 2, 1);
+    plot(x, M);
+    xlabel('Distance (m)');
+    ylabel('Mach Number');
+    title('Mach Number vs. Distance');
+    
+    subplot(1, 2, 2);
+    plot(x, T);
+    xlabel('Distance (m)');
+    ylabel('Static Temperature (K)');
+    title('Static Tempterature vs. Distance');
+    
+    burner.plotGeometry();
+    axis equal
 end
 end
 

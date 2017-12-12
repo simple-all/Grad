@@ -1,7 +1,7 @@
 classdef memBurner < handle
-    
+    % Memoized burner function
     properties
-        fh
+        fh; % Memoized function handle
     end
     methods
         
