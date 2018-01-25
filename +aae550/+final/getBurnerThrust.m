@@ -9,7 +9,7 @@ dmdot_dt = @(x) 1 * ((x <= 0.5) * sin(pi * x) + ...
 Pa = 5474.89; % [Pa] Ambient Pressure
 Ta = 216.65; % [K] Ambient Temperature
 burner = aae550.final.Burner();
-burner.setMaxStep(1e-1);
+burner.setMaxStep(1e-2);
 
 % Set up the geometry
 w = 1.067724; % need to calculate this
