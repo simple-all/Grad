@@ -1,6 +1,12 @@
 *.asv
 *.m~37f0e951d805c7a783e0b59d17e458cc80fcf499
 *.m~HEAD
+*.aux
+*.bbl
+*.blg
+*.log
+*.bak
+*.gz
 
 +aae550/+final/~$nal Writeup.docx
 
