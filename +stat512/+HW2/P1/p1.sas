@@ -21,7 +21,6 @@ proc reg data=dat;
 	model GPA=exam/clb p r;
 	output out=diag p=pred r=resid;
 	id exam;
-
 run;
 
 

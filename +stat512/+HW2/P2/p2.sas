@@ -12,7 +12,7 @@ run;
 SYMBOL1 v=circle i=rl;
 title1 'Hardness v. Time';
 axis1 label=('Time (hrs)');
-axis2 label=('Hardness');
+axis2 label=('Hardness (Brinell)');
 proc gplot;
 	plot hardness*time / haxis=axis1 vaxis=axis2;
 run;
@@ -21,7 +21,7 @@ SYMBOL1 v=circle i=rlclm;
 title1 'Hardness v. Time';
 title2 '95% Confidence Bounds for Mean';
 axis1 label=('Time (hrs)');
-axis2 label=('Hardness');
+axis2 label=('Hardness (Brinell)');
 proc gplot;
 	plot hardness*time / haxis=axis1 vaxis=axis2;
 run;
@@ -31,7 +31,7 @@ SYMBOL1 v=circle i=rlcli;
 title1 'Hardness v. Time';
 title2 '95% Confidence Bounds for Individual Observations';
 axis1 label=('Time (hrs)');
-axis2 label=('Hardness');
+axis2 label=('Hardness (Brinell)');
 proc gplot;
 	plot hardness*time / haxis=axis1 vaxis=axis2;
 run;
@@ -52,9 +52,14 @@ data datPred;
 data datNew;
 	set dat datPred;
 
-title1 'Prediction of Y_h(new)';
+title1 'Prediction of E(Y_h)';
 proc reg data=datNew;
 	model hardness=time/clm;
 run;
 	
+
+title1 'Prediction of Y_h(new)';
+proc reg data=datNew;
+	model hardness=time/cli;
+run;
 	
