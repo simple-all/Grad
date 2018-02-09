@@ -47,5 +47,3 @@ axis2 label=('Reaction Rate');
 proc gplot data=invSet;
 	plot rxnRate*concentration predv*concentration /overlay haxis=axis vaxis=axis2;
 run;
-	
-	
