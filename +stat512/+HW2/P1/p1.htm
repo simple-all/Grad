@@ -1,0 +1,1956 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN">
+<HTML><HEAD><META content="IE=5.0000" http-equiv="X-UA-Compatible">
+<TITLE>SAS Output</TITLE>
+<META name=GENERATOR content="MSHTML 11.00.10570.1001">
+<META content="text/html; charset=windows-1252" http-equiv=Content-type>
+<STYLE type=text/css>.aftercaption {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; PADDING-TOP: 4pt; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.batch {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 1px solid; FONT-FAMILY: 'SAS Monospace', 'Courier New', Courier, monospace; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-COLLAPSE: separate; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; COLOR: #000000; PADDING-BOTTOM: 7px; FONT-STYLE: normal; PADDING-TOP: 7px; PADDING-LEFT: 7px; BORDER-SPACING: 1px; BORDER-LEFT: #c1c1c1 1px solid; PADDING-RIGHT: 7px; BACKGROUND-COLOR: #fafbfe
+}
+.beforecaption {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.body {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 8px; BACKGROUND-COLOR: #fafbfe; MARGIN-RIGHT: 8px
+}
+.bodydate {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; WIDTH: 100%; VERTICAL-ALIGN: top; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; TEXT-ALIGN: right; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.bycontentfolder {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.byline {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.bylinecontainer {
+	FONT-SIZE: x-small; BORDER-TOP: #000000 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #000000 0px solid; WIDTH: 100%; BORDER-BOTTOM: #000000 0px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BORDER-SPACING: 1px; BORDER-LEFT: #000000 0px solid; BACKGROUND-COLOR: #fafbfe
+}
+.caption {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.cell {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.container {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.contentfolder {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.contentitem {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.contentproclabel {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.contentprocname {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.contents {
+	LIST-STYLE-TYPE: decimal; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 8px; BACKGROUND-COLOR: #fafbfe; MARGIN-RIGHT: 8px
+}
+.contentsdate {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; WIDTH: 100%; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.contenttitle {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: italic; BACKGROUND-COLOR: #fafbfe
+}
+.continued {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; WIDTH: 100%; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.data {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.dataemphasis {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.dataemphasisfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; FONT-STYLE: italic; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.dataempty {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.datafixed {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: 'Courier New', Courier; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.datastrong {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: bold; COLOR: #000000; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.datastrongfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: bold; COLOR: #000000; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #ffffff
+}
+.date {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; WIDTH: 100%; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.document {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+A:link {
+	COLOR: #0000ff
+}
+A:visited {
+	COLOR: #800080
+}
+A:active {
+	COLOR: #800080
+}
+.errorbanner {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.errorcontent {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.errorcontentfixed {
+	FONT-SIZE: x-small; FONT-FAMILY: 'Courier New', Courier; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.extendedpage {
+	FONT-SIZE: x-small; BORDER-TOP: #000000 1pt solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #000000 1pt solid; BORDER-BOTTOM: #000000 1pt solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; TEXT-ALIGN: center; BORDER-LEFT: #000000 1pt solid; BACKGROUND-COLOR: #fafbfe
+}
+.fatalbanner {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.fatalcontent {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.fatalcontentfixed {
+	FONT-SIZE: x-small; FONT-FAMILY: 'Courier New', Courier; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.folderaction {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.footer {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.footeremphasis {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.footeremphasisfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.footerempty {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.footerfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.footerstrong {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.footerstrongfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.frame {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.graph {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 1px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-COLLAPSE: separate; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BORDER-SPACING: 1px; BORDER-LEFT: #c1c1c1 1px solid; BACKGROUND-COLOR: #fafbfe
+}
+.header {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.headeremphasis {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #d8dbd3
+}
+.headeremphasisfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #d8dbd3
+}
+.headerempty {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.headerfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.headersandfooters {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #edf2f9
+}
+.headerstrong {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #000000; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #d8dbd3
+}
+.headerstrongfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #000000; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #d8dbd3
+}
+.heading1 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.heading2 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.heading3 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.heading4 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.heading5 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.heading6 {
+	FONT-FAMILY: Arial, Helvetica, sans-serif
+}
+.index {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.indexaction {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.indexitem {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.indexprocname {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.indextitle {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: italic; BACKGROUND-COLOR: #fafbfe
+}
+.layoutcontainer {
+	BORDER-TOP: #000000 0px solid; BORDER-RIGHT: #000000 0px solid; BORDER-BOTTOM: #000000 0px solid; BORDER-SPACING: 30px; BORDER-LEFT: #000000 0px solid
+}
+.layoutregion {
+	BORDER-TOP: #000000 0px solid; BORDER-RIGHT: #000000 0px solid; BORDER-BOTTOM: #000000 0px solid; BORDER-SPACING: 30px; BORDER-LEFT: #000000 0px solid
+}
+.linecontent {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #c1c1c1 0px solid; BACKGROUND-COLOR: #fafbfe
+}
+.list {
+	LIST-STYLE-TYPE: disc; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list10 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list2 {
+	LIST-STYLE-TYPE: circle; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list3 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list4 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list5 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list6 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list7 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list8 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.list9 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem {
+	LIST-STYLE-TYPE: disc; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem10 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem2 {
+	LIST-STYLE-TYPE: circle; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem3 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem4 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem5 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem6 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem7 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem8 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.listitem9 {
+	LIST-STYLE-TYPE: square; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.note {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.notebanner {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.notecontent {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.notecontentfixed {
+	FONT-SIZE: x-small; FONT-FAMILY: 'Courier New', Courier; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.output {
+	FONT-SIZE: x-small; BORDER-TOP: #c1c1c1 1px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #c1c1c1 1px solid; BORDER-COLLAPSE: separate; BORDER-BOTTOM: #c1c1c1 1px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BORDER-SPACING: 1px; BORDER-LEFT: #c1c1c1 1px solid; BACKGROUND-COLOR: #fafbfe
+}
+.pageno {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; VERTICAL-ALIGN: top; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; TEXT-ALIGN: right; BORDER-SPACING: 0px; BACKGROUND-COLOR: #fafbfe
+}
+.pages {
+	LIST-STYLE-TYPE: decimal; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 8px; BACKGROUND-COLOR: #fafbfe; MARGIN-RIGHT: 8px
+}
+.pagesdate {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; WIDTH: 100%; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.pagesitem {
+	LIST-STYLE-TYPE: none; FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; MARGIN-LEFT: 6pt
+}
+.pagesproclabel {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.pagesprocname {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.pagestitle {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: italic; BACKGROUND-COLOR: #fafbfe
+}
+.paragraph {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.parskip {
+	FONT-SIZE: x-small; BORDER-TOP: #000000 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #000000 0px solid; BORDER-BOTTOM: #000000 0px solid; FONT-WEIGHT: bold; FONT-STYLE: normal; BORDER-SPACING: 0px; BORDER-LEFT: #000000 0px solid
+}
+.prepage {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; TEXT-ALIGN: left; BACKGROUND-COLOR: #fafbfe
+}
+.proctitle {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.proctitlefixed {
+	FONT-SIZE: x-small; FONT-FAMILY: 'Courier New', Courier, monospace; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.rowfooter {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowfooteremphasis {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowfooteremphasisfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowfooterempty {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowfooterfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowfooterstrong {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowfooterstrongfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheader {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheaderemphasis {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheaderemphasisfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: italic; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheaderempty {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheaderfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheaderstrong {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.rowheaderstrongfixed {
+	FONT-SIZE: x-small; BORDER-TOP: #b0b7bb 0px solid; FONT-FAMILY: 'Courier New', Courier, monospace; BORDER-RIGHT: #b0b7bb 1px solid; BORDER-BOTTOM: #b0b7bb 1px solid; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BORDER-LEFT: #b0b7bb 0px solid; BACKGROUND-COLOR: #edf2f9
+}
+.systemfooter {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter10 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter2 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter3 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter4 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter5 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter6 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter7 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter8 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemfooter9 {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle10 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle2 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle3 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle4 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle5 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle6 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle7 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle8 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systemtitle9 {
+	FONT-SIZE: small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.systitleandfootercontainer {
+	FONT-SIZE: x-small; BORDER-TOP: #000000 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #000000 0px solid; WIDTH: 100%; BORDER-BOTTOM: #000000 0px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BORDER-SPACING: 1px; BORDER-LEFT: #000000 0px solid; BACKGROUND-COLOR: #fafbfe
+}
+.table {
+	BORDER-TOP: #c1c1c1 1px solid; BORDER-RIGHT: #c1c1c1 0px solid; BORDER-COLLAPSE: collapse; BORDER-BOTTOM: #c1c1c1 0px solid; BORDER-SPACING: 0px; BORDER-LEFT: #c1c1c1 1px solid
+}
+.top_stacked_value {
+	BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; PADDING-BOTTOM: 1px; BORDER-LEFT: 0px
+}
+.middle_stacked_value {
+	BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; PADDING-BOTTOM: 1px; PADDING-TOP: 1px; BORDER-LEFT: 0px
+}
+.bottom_stacked_value {
+	BORDER-TOP: 0px; BORDER-RIGHT: 0px; BORDER-BOTTOM: 0px; PADDING-TOP: 1px; BORDER-LEFT: 0px
+}
+.titleandnotecontainer {
+	FONT-SIZE: x-small; BORDER-TOP: #000000 0px solid; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; BORDER-RIGHT: #000000 0px solid; WIDTH: 100%; BORDER-BOTTOM: #000000 0px solid; FONT-WEIGHT: normal; COLOR: #000000; FONT-STYLE: normal; BORDER-SPACING: 1px; BORDER-LEFT: #000000 0px solid; BACKGROUND-COLOR: #fafbfe
+}
+.titlesandfooters {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.usertext {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.warnbanner {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: bold; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.warncontent {
+	FONT-SIZE: x-small; FONT-FAMILY: Arial, 'Albany AMT', Helvetica, Helv; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.warncontentfixed {
+	FONT-SIZE: x-small; FONT-FAMILY: 'Courier New', Courier; FONT-WEIGHT: normal; COLOR: #112277; FONT-STYLE: normal; BACKGROUND-COLOR: #fafbfe
+}
+.l {
+	TEXT-ALIGN: left
+}
+.c {
+	TEXT-ALIGN: center
+}
+.r {
+	TEXT-ALIGN: right
+}
+.d {
+	TEXT-ALIGN: right
+}
+.j {
+	TEXT-ALIGN: justify
+}
+.t {
+	VERTICAL-ALIGN: top
+}
+.m {
+	VERTICAL-ALIGN: middle
+}
+.b {
+	VERTICAL-ALIGN: bottom
+}
+TD {
+	VERTICAL-ALIGN: top
+}
+TH {
+	VERTICAL-ALIGN: top
+}
+.stacked_cell {
+	PADDING-BOTTOM: 0px; PADDING-TOP: 0px; PADDING-LEFT: 0px; PADDING-RIGHT: 0px
+}
+</STYLE>
+
+<SCRIPT language=javascript type=text/javascript>
+<!-- 
+function startup(){
+
+}
+function shutdown(){
+
+}
+
+//-->
+</SCRIPT>
+</HEAD>
+<BODY class=body onload=startup() onunload=shutdown()>
+<SCRIPT language=javascript type=text/javascript>
+<!-- 
+var _info = navigator.userAgent
+var _ie = (_info.indexOf("MSIE") > 0
+          && _info.indexOf("Win") > 0
+          && _info.indexOf("Windows 3.1") < 0);
+var _ie64 = _info.indexOf("x64") > 0
+
+//-->
+</SCRIPT>
+
+<DIV class=branch><A name=IDX></A>
+<DIV>
+<DIV class=c><IMG class="c graph" 
+style="BORDER-LEFT-WIDTH: 0px; HEIGHT: 600px; BORDER-RIGHT-WIDTH: 0px; WIDTH: 800px; BORDER-BOTTOM-WIDTH: 0px; BORDER-TOP-WIDTH: 0px" 
+border=0 alt="Plot of GPA by exam" src="p1_files/gplot.png"> 
+</DIV></DIV><BR></DIV>
+<DIV class=branch>
+<P style="PAGE-BREAK-AFTER: always"><BR></P>
+<HR SIZE=3>
+<A name=IDX1></A>
+<TABLE class=systitleandfootercontainer cellSpacing=1 cellPadding=1 rules=none 
+width="100%" summary="Page Layout" border=0 frame=void>
+  <TBODY>
+  <TR>
+    <TD class="c systemtitle">GPA v. Entrance Exam Score</TD></TR>
+  <TR>
+    <TD class="c systemtitle2">Smoothed curve Value: 
+70</TD></TR></TBODY></TABLE><BR>
+<DIV class="c proctitle">The REG Procedure</DIV>
+<DIV class="c proctitle">Model: MODEL1</DIV>
+<DIV class="c proctitle">Dependent Variable: GPA </DIV>
+<P>
+<DIV>
+<DIV align=center>
+<TABLE class=table borderColor=#c1c1c1 cellSpacing=0 cellPadding=5 rules=all 
+summary="Procedure Reg: Number of Observations" frame=box>
+  <COLGROUP>
+  <COL>
+  <COL></COLGROUP>
+  <TBODY>
+  <TR>
+    <TH class="l rowheader" scope=row>Number of Observations Read</TH>
+    <TD class="r data">120</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Number of Observations Used</TH>
+    <TD class="r data">120</TD></TR></TBODY></TABLE></DIV></DIV><BR><A 
+name=IDX2></A>
+<DIV>
+<DIV align=center>
+<TABLE class=table borderColor=#c1c1c1 cellSpacing=0 cellPadding=5 rules=all 
+summary="Procedure Reg: Analysis of Variance" frame=box>
+  <COLGROUP>
+  <COL></COLGROUP>
+  <COLGROUP>
+  <COL>
+  <COL>
+  <COL>
+  <COL>
+  <COL></COLGROUP>
+  <THEAD>
+  <TR>
+    <TH class="c b header" colSpan=6 scope=colgroup>Analysis of Variance</TH></TR>
+  <TR>
+    <TH class="l b header" scope=col>Source</TH>
+    <TH class="r b header" scope=col>DF</TH>
+    <TH class="r b header" scope=col>Sum of<BR>Squares</TH>
+    <TH class="r b header" scope=col>Mean<BR>Square</TH>
+    <TH class="r b header" scope=col>F Value</TH>
+    <TH class="r b header" scope=col>Pr&nbsp;&gt;&nbsp;F</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH class="l rowheader" scope=row>Model</TH>
+    <TD class="r data">1</TD>
+    <TD class="r data">3.58785</TD>
+    <TD class="r data">3.58785</TD>
+    <TD class="r data">9.24</TD>
+    <TD class="r data">0.0029</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Error</TH>
+    <TD class="r data">118</TD>
+    <TD class="r data">45.81761</TD>
+    <TD class="r data">0.38828</TD>
+    <TD class="r data">&nbsp;</TD>
+    <TD class="r data">&nbsp;</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Corrected Total</TH>
+    <TD class="r data">119</TD>
+    <TD class="r data">49.40545</TD>
+    <TD class="r data">&nbsp;</TD>
+    <TD class="r data">&nbsp;</TD>
+    <TD class="r data">&nbsp;</TD></TR></TBODY></TABLE></DIV></DIV><BR><A 
+name=IDX3></A>
+<DIV>
+<DIV align=center>
+<TABLE class=table borderColor=#c1c1c1 cellSpacing=0 cellPadding=5 rules=all 
+summary="Procedure Reg: Fit Statistics" frame=box>
+  <COLGROUP>
+  <COL>
+  <COL>
+  <COL>
+  <COL></COLGROUP>
+  <TBODY>
+  <TR>
+    <TH class="l rowheader" scope=row>Root MSE</TH>
+    <TD class="r data">0.62313</TD>
+    <TH class="l rowheader" scope=row>R-Square</TH>
+    <TD class="r data">0.0726</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Dependent Mean</TH>
+    <TD class="r data">3.07405</TD>
+    <TH class="l rowheader" scope=row>Adj R-Sq</TH>
+    <TD class="r data">0.0648</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Coeff Var</TH>
+    <TD class="r data">20.27049</TD>
+    <TH class="l rowheader" scope=row>&nbsp;</TH>
+    <TD class="r data">&nbsp;</TD></TR></TBODY></TABLE></DIV></DIV><BR><A 
+name=IDX4></A>
+<DIV>
+<DIV align=center>
+<TABLE class=table borderColor=#c1c1c1 cellSpacing=0 cellPadding=5 rules=all 
+summary="Procedure Reg: Parameter Estimates" frame=box>
+  <COLGROUP>
+  <COL>
+  <COL></COLGROUP>
+  <COLGROUP>
+  <COL>
+  <COL>
+  <COL>
+  <COL>
+  <COL>
+  <COL></COLGROUP>
+  <THEAD>
+  <TR>
+    <TH class="c b header" colSpan=8 scope=colgroup>Parameter Estimates</TH></TR>
+  <TR>
+    <TH class="l b header" scope=col>Variable</TH>
+    <TH class="r b header" scope=col>DF</TH>
+    <TH class="r b header" scope=col>Parameter<BR>Estimate</TH>
+    <TH class="r b header" scope=col>Standard<BR>Error</TH>
+    <TH class="r b header" scope=col>t&nbsp;Value</TH>
+    <TH class="r b header" scope=col>Pr&nbsp;&gt;&nbsp;|t|</TH>
+    <TH class="c b header" colSpan=2 scope=colgroup>95% Confidence 
+  Limits</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH class="l rowheader" scope=row>Intercept</TH>
+    <TH class="r data">1</TH>
+    <TD class="r data">2.11405</TD>
+    <TD class="r data">0.32089</TD>
+    <TD class="r data">6.59</TD>
+    <TD class="r data">&lt;.0001</TD>
+    <TD class="r data">1.47859</TD>
+    <TD class="r data">2.74951</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>exam</TH>
+    <TH class="r data">1</TH>
+    <TD class="r data">0.03883</TD>
+    <TD class="r data">0.01277</TD>
+    <TD class="r data">3.04</TD>
+    <TD class="r data">0.0029</TD>
+    <TD class="r data">0.01353</TD>
+    <TD class="r data">0.06412</TD></TR></TBODY></TABLE></DIV></DIV><BR>
+<P style="PAGE-BREAK-AFTER: always"><BR></P>
+<HR SIZE=3>
+<A name=IDX5></A>
+<TABLE class=systitleandfootercontainer cellSpacing=1 cellPadding=1 rules=none 
+width="100%" summary="Page Layout" border=0 frame=void>
+  <TBODY>
+  <TR>
+    <TD class="c systemtitle">GPA v. Entrance Exam Score</TD></TR>
+  <TR>
+    <TD class="c systemtitle2">Smoothed curve Value: 
+70</TD></TR></TBODY></TABLE><BR>
+<DIV class="c proctitle">The REG Procedure</DIV>
+<DIV class="c proctitle">Model: MODEL1</DIV>
+<DIV class="c proctitle">Dependent Variable: GPA </DIV>
+<P>
+<DIV>
+<DIV align=center>
+<TABLE class=table borderColor=#c1c1c1 cellSpacing=0 cellPadding=5 rules=all 
+summary="Procedure Reg: Output Statistics" frame=box>
+  <COLGROUP>
+  <COL>
+  <COL></COLGROUP>
+  <COLGROUP>
+  <COL>
+  <COL>
+  <COL>
+  <COL>
+  <COL>
+  <COL>
+  <COL></COLGROUP>
+  <THEAD>
+  <TR>
+    <TH class="c b header" colSpan=9 scope=colgroup>Output Statistics</TH></TR>
+  <TR>
+    <TH class="r b header" scope=col>Obs</TH>
+    <TH class="r b header" scope=col>exam</TH>
+    <TH class="r b header" scope=col>Dependent<BR>Variable</TH>
+    <TH class="r b header" scope=col>Predicted<BR>Value</TH>
+    <TH class="r b header" scope=col>Std<BR>Error<BR>Mean<BR>Predict</TH>
+    <TH class="r b header" scope=col>Residual</TH>
+    <TH class="r b header" scope=col>Std Error<BR>Residual</TH>
+    <TH class="r b header" scope=col>Student<BR>Residual</TH>
+    <TH class="r b header" scope=col>Cook's D</TH></TR></THEAD>
+  <TBODY>
+  <TR>
+    <TH class="r rowheader" scope=row>1</TH>
+    <TH class="r data">14</TH>
+    <TD class="r data">3.89</TD>
+    <TD class="r data">2.6576</TD>
+    <TD class="r data">0.1483</TD>
+    <TD class="r data">1.2274</TD>
+    <TD class="r data">0.605</TD>
+    <TD class="r data">2.028</TD>
+    <TD class="r data">0.124</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>2</TH>
+    <TH class="r data">15</TH>
+    <TD class="r data">2.00</TD>
+    <TD class="r data">2.6965</TD>
+    <TD class="r data">0.1366</TD>
+    <TD class="r data" noWrap>-0.6965</TD>
+    <TD class="r data">0.608</TD>
+    <TD class="r data" noWrap>-1.146</TD>
+    <TD class="r data">0.033</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>3</TH>
+    <TH class="r data">16</TH>
+    <TD class="r data">2.38</TD>
+    <TD class="r data">2.7353</TD>
+    <TD class="r data">0.1251</TD>
+    <TD class="r data" noWrap>-0.3603</TD>
+    <TD class="r data">0.610</TD>
+    <TD class="r data" noWrap>-0.590</TD>
+    <TD class="r data">0.007</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>4</TH>
+    <TH class="r data">16</TH>
+    <TD class="r data">3.35</TD>
+    <TD class="r data">2.7353</TD>
+    <TD class="r data">0.1251</TD>
+    <TD class="r data">0.6167</TD>
+    <TD class="r data">0.610</TD>
+    <TD class="r data">1.010</TD>
+    <TD class="r data">0.021</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>5</TH>
+    <TH class="r data">16</TH>
+    <TD class="r data">1.86</TD>
+    <TD class="r data">2.7353</TD>
+    <TD class="r data">0.1251</TD>
+    <TD class="r data" noWrap>-0.8753</TD>
+    <TD class="r data">0.610</TD>
+    <TD class="r data" noWrap>-1.434</TD>
+    <TD class="r data">0.043</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>6</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">3.81</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data">0.9931</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data">1.616</TD>
+    <TD class="r data">0.037</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>7</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">1.81</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data" noWrap>-1.0069</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-1.638</TD>
+    <TD class="r data">0.038</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>8</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">2.48</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data" noWrap>-0.3309</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-0.539</TD>
+    <TD class="r data">0.004</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>9</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">2.70</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data" noWrap>-0.1129</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-0.184</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>10</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">3.02</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data">0.2111</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data">0.343</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>11</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">2.31</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data" noWrap>-0.5019</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-0.817</TD>
+    <TD class="r data">0.009</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>12</TH>
+    <TH class="r data">18</TH>
+    <TD class="r data">1.58</TD>
+    <TD class="r data">2.8129</TD>
+    <TD class="r data">0.1030</TD>
+    <TD class="r data" noWrap>-1.2299</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-2.001</TD>
+    <TD class="r data">0.056</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>13</TH>
+    <TH class="r data">19</TH>
+    <TD class="r data">2.95</TD>
+    <TD class="r data">2.8518</TD>
+    <TD class="r data">0.0926</TD>
+    <TD class="r data">0.1002</TD>
+    <TD class="r data">0.616</TD>
+    <TD class="r data">0.163</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>14</TH>
+    <TH class="r data">19</TH>
+    <TD class="r data">3.81</TD>
+    <TD class="r data">2.8518</TD>
+    <TD class="r data">0.0926</TD>
+    <TD class="r data">0.9562</TD>
+    <TD class="r data">0.616</TD>
+    <TD class="r data">1.552</TD>
+    <TD class="r data">0.027</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>15</TH>
+    <TH class="r data">19</TH>
+    <TD class="r data">2.75</TD>
+    <TD class="r data">2.8518</TD>
+    <TD class="r data">0.0926</TD>
+    <TD class="r data" noWrap>-0.1048</TD>
+    <TD class="r data">0.616</TD>
+    <TD class="r data" noWrap>-0.170</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>16</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">2.12</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data" noWrap>-0.7726</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-1.251</TD>
+    <TD class="r data">0.014</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>17</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">2.19</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data" noWrap>-0.6966</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-1.128</TD>
+    <TD class="r data">0.011</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>18</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">3.04</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data">0.1484</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">0.240</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>19</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">2.83</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data" noWrap>-0.0566</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-0.092</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>20</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">3.32</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data">0.4324</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">0.700</TD>
+    <TD class="r data">0.004</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>21</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">3.07</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data">0.1814</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">0.294</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>22</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">2.88</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data" noWrap>-0.0116</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-0.019</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>23</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">2.39</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data" noWrap>-0.4966</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-0.804</TD>
+    <TD class="r data">0.006</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>24</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">2.29</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data" noWrap>-0.6046</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-0.979</TD>
+    <TD class="r data">0.009</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>25</TH>
+    <TH class="r data">20</TH>
+    <TD class="r data">3.89</TD>
+    <TD class="r data">2.8906</TD>
+    <TD class="r data">0.0829</TD>
+    <TD class="r data">0.9944</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">1.610</TD>
+    <TD class="r data">0.023</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>26</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">3.90</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data">0.9676</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">1.564</TD>
+    <TD class="r data">0.018</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>27</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">3.03</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data">0.0986</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.159</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>28</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">3.36</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data">0.4276</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.691</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>29</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">3.06</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data">0.1306</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.211</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>30</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">3.38</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data">0.4516</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.730</TD>
+    <TD class="r data">0.004</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>31</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">3.16</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data">0.2306</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.373</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>32</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">2.45</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data" noWrap>-0.4774</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data" noWrap>-0.772</TD>
+    <TD class="r data">0.004</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>33</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">2.51</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data" noWrap>-0.4234</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data" noWrap>-0.684</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>34</TH>
+    <TH class="r data">21</TH>
+    <TD class="r data">2.88</TD>
+    <TD class="r data">2.9294</TD>
+    <TD class="r data">0.0742</TD>
+    <TD class="r data" noWrap>-0.0544</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data" noWrap>-0.088</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>35</TH>
+    <TH class="r data">22</TH>
+    <TD class="r data">2.54</TD>
+    <TD class="r data">2.9682</TD>
+    <TD class="r data">0.0667</TD>
+    <TD class="r data" noWrap>-0.4282</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.691</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>36</TH>
+    <TH class="r data">22</TH>
+    <TD class="r data">2.58</TD>
+    <TD class="r data">2.9682</TD>
+    <TD class="r data">0.0667</TD>
+    <TD class="r data" noWrap>-0.3892</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.628</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>37</TH>
+    <TH class="r data">22</TH>
+    <TD class="r data">2.86</TD>
+    <TD class="r data">2.9682</TD>
+    <TD class="r data">0.0667</TD>
+    <TD class="r data" noWrap>-0.1112</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.180</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>38</TH>
+    <TH class="r data">22</TH>
+    <TD class="r data">3.42</TD>
+    <TD class="r data">2.9682</TD>
+    <TD class="r data">0.0667</TD>
+    <TD class="r data">0.4508</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.728</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>39</TH>
+    <TH class="r data">23</TH>
+    <TD class="r data">2.72</TD>
+    <TD class="r data">3.0071</TD>
+    <TD class="r data">0.0610</TD>
+    <TD class="r data" noWrap>-0.2911</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.469</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>40</TH>
+    <TH class="r data">23</TH>
+    <TD class="r data">3.61</TD>
+    <TD class="r data">3.0071</TD>
+    <TD class="r data">0.0610</TD>
+    <TD class="r data">0.5989</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.966</TD>
+    <TD class="r data">0.005</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>41</TH>
+    <TH class="r data">23</TH>
+    <TD class="r data">3.52</TD>
+    <TD class="r data">3.0071</TD>
+    <TD class="r data">0.0610</TD>
+    <TD class="r data">0.5089</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.821</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>42</TH>
+    <TH class="r data">23</TH>
+    <TD class="r data">2.97</TD>
+    <TD class="r data">3.0071</TD>
+    <TD class="r data">0.0610</TD>
+    <TD class="r data" noWrap>-0.0411</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.066</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>43</TH>
+    <TH class="r data">23</TH>
+    <TD class="r data">3.22</TD>
+    <TD class="r data">3.0071</TD>
+    <TD class="r data">0.0610</TD>
+    <TD class="r data">0.2149</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.347</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>44</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.31</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data">0.2641</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.426</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>45</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.08</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data">0.0371</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.060</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>46</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.01</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data" noWrap>-0.0329</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.053</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>47</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">2.56</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data" noWrap>-0.4829</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.778</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>48</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.07</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data">0.0261</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.042</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>49</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">2.54</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data" noWrap>-0.5059</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.815</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>50</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">2.62</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data" noWrap>-0.4289</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.691</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>51</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.55</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data">0.5011</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.808</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>52</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">2.66</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data" noWrap>-0.3909</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.630</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>53</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.89</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data">0.8401</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">1.354</TD>
+    <TD class="r data">0.008</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>54</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">3.83</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data">0.7871</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">1.269</TD>
+    <TD class="r data">0.007</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>55</TH>
+    <TH class="r data">24</TH>
+    <TD class="r data">2.91</TD>
+    <TD class="r data">3.0459</TD>
+    <TD class="r data">0.0576</TD>
+    <TD class="r data" noWrap>-0.1319</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.213</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>56</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">3.52</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data">0.4373</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data">0.705</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>57</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">2.95</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data" noWrap>-0.1377</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data" noWrap>-0.222</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>58</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">3.93</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data">0.8423</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data">1.357</TD>
+    <TD class="r data">0.008</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>59</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">2.92</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data" noWrap>-0.1627</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data" noWrap>-0.262</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>60</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">3.37</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data">0.2853</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data">0.460</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>61</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">3.21</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data">0.1233</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data">0.199</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>62</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">3.43</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data">0.3443</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data">0.555</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>63</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">1.84</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data" noWrap>-1.2437</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data" noWrap>-2.004</TD>
+    <TD class="r data">0.017</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>64</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">2.80</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data" noWrap>-0.2847</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data" noWrap>-0.459</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>65</TH>
+    <TH class="r data">25</TH>
+    <TD class="r data">2.87</TD>
+    <TD class="r data">3.0847</TD>
+    <TD class="r data">0.0570</TD>
+    <TD class="r data" noWrap>-0.2177</TD>
+    <TD class="r data">0.621</TD>
+    <TD class="r data" noWrap>-0.351</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>66</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">3.18</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data">0.0544</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.088</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>67</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">3.10</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data" noWrap>-0.0226</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.036</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>68</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">3.87</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data">0.7474</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">1.205</TD>
+    <TD class="r data">0.007</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>69</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">3.38</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data">0.2514</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.405</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>70</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">3.65</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data">0.5224</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.842</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>71</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">2.98</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data" noWrap>-0.1456</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.235</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>72</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">2.25</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data" noWrap>-0.8736</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-1.408</TD>
+    <TD class="r data">0.009</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>73</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">2.95</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data" noWrap>-0.1716</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.277</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>74</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">3.08</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data" noWrap>-0.0396</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.064</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>75</TH>
+    <TH class="r data">26</TH>
+    <TD class="r data">2.08</TD>
+    <TD class="r data">3.1236</TD>
+    <TD class="r data">0.0592</TD>
+    <TD class="r data" noWrap>-1.0446</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-1.684</TD>
+    <TD class="r data">0.013</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>76</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">3.96</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data">0.7986</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">1.288</TD>
+    <TD class="r data">0.009</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>77</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">2.96</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data" noWrap>-0.1994</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.322</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>78</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">3.93</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data">0.7626</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">1.230</TD>
+    <TD class="r data">0.008</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>79</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">3.55</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data">0.3866</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.624</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>80</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">2.87</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data" noWrap>-0.2914</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.470</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>81</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">3.31</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data">0.1426</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.230</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>82</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">2.92</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data" noWrap>-0.2424</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.391</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>83</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">3.35</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data">0.1826</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data">0.295</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>84</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">2.18</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data" noWrap>-0.9794</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-1.580</TD>
+    <TD class="r data">0.013</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>85</TH>
+    <TH class="r data">27</TH>
+    <TD class="r data">3.11</TD>
+    <TD class="r data">3.1624</TD>
+    <TD class="r data">0.0639</TD>
+    <TD class="r data" noWrap>-0.0494</TD>
+    <TD class="r data">0.620</TD>
+    <TD class="r data" noWrap>-0.080</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>86</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">3.78</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.5768</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.932</TD>
+    <TD class="r data">0.006</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>87</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">3.73</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.5298</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.856</TD>
+    <TD class="r data">0.005</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>88</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">3.56</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.3548</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.573</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>89</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">2.42</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data" noWrap>-0.7812</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data" noWrap>-1.262</TD>
+    <TD class="r data">0.010</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>90</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">2.93</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data" noWrap>-0.2722</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data" noWrap>-0.440</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>91</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">4.00</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.7988</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">1.290</TD>
+    <TD class="r data">0.011</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>92</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">3.62</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.4198</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.678</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>93</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">3.79</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.5908</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">0.954</TD>
+    <TD class="r data">0.006</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>94</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">3.91</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data">0.7128</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data">1.151</TD>
+    <TD class="r data">0.009</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>95</TH>
+    <TH class="r data">28</TH>
+    <TD class="r data">2.95</TD>
+    <TD class="r data">3.2012</TD>
+    <TD class="r data">0.0706</TD>
+    <TD class="r data" noWrap>-0.2532</TD>
+    <TD class="r data">0.619</TD>
+    <TD class="r data" noWrap>-0.409</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>96</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">0.50</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data" noWrap>-2.7400</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-4.433</TD>
+    <TD class="r data">0.160</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>97</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">2.07</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data" noWrap>-1.1710</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data" noWrap>-1.895</TD>
+    <TD class="r data">0.029</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>98</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">3.94</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data">0.6960</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">1.126</TD>
+    <TD class="r data">0.010</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>99</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">3.92</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data">0.6800</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">1.100</TD>
+    <TD class="r data">0.010</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>100</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">3.96</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data">0.7160</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">1.158</TD>
+    <TD class="r data">0.011</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>101</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">3.75</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data">0.5100</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">0.825</TD>
+    <TD class="r data">0.006</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>102</TH>
+    <TH class="r data">29</TH>
+    <TD class="r data">3.80</TD>
+    <TD class="r data">3.2400</TD>
+    <TD class="r data">0.0789</TD>
+    <TD class="r data">0.5600</TD>
+    <TD class="r data">0.618</TD>
+    <TD class="r data">0.906</TD>
+    <TD class="r data">0.007</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>103</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">3.54</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data">0.2591</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data">0.420</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>104</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">3.29</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data">0.0111</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data">0.018</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>105</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">2.65</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data" noWrap>-0.6249</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data" noWrap>-1.013</TD>
+    <TD class="r data">0.010</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>106</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">3.69</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data">0.4121</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data">0.668</TD>
+    <TD class="r data">0.005</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>107</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">3.32</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data">0.0441</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data">0.072</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>108</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">2.64</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data" noWrap>-0.6369</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data" noWrap>-1.032</TD>
+    <TD class="r data">0.011</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>109</TH>
+    <TH class="r data">30</TH>
+    <TD class="r data">3.60</TD>
+    <TD class="r data">3.2789</TD>
+    <TD class="r data">0.0882</TD>
+    <TD class="r data">0.3211</TD>
+    <TD class="r data">0.617</TD>
+    <TD class="r data">0.521</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>110</TH>
+    <TH class="r data">31</TH>
+    <TD class="r data">3.87</TD>
+    <TD class="r data">3.3177</TD>
+    <TD class="r data">0.0983</TD>
+    <TD class="r data">0.5473</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data">0.889</TD>
+    <TD class="r data">0.010</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>111</TH>
+    <TH class="r data">31</TH>
+    <TD class="r data">3.01</TD>
+    <TD class="r data">3.3177</TD>
+    <TD class="r data">0.0983</TD>
+    <TD class="r data" noWrap>-0.3047</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-0.495</TD>
+    <TD class="r data">0.003</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>112</TH>
+    <TH class="r data">31</TH>
+    <TD class="r data">2.18</TD>
+    <TD class="r data">3.3177</TD>
+    <TD class="r data">0.0983</TD>
+    <TD class="r data" noWrap>-1.1347</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-1.844</TD>
+    <TD class="r data">0.043</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>113</TH>
+    <TH class="r data">31</TH>
+    <TD class="r data">1.49</TD>
+    <TD class="r data">3.3177</TD>
+    <TD class="r data">0.0983</TD>
+    <TD class="r data" noWrap>-1.8317</TD>
+    <TD class="r data">0.615</TD>
+    <TD class="r data" noWrap>-2.977</TD>
+    <TD class="r data">0.113</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>114</TH>
+    <TH class="r data">32</TH>
+    <TD class="r data">2.96</TD>
+    <TD class="r data">3.3565</TD>
+    <TD class="r data">0.1090</TD>
+    <TD class="r data" noWrap>-0.3945</TD>
+    <TD class="r data">0.614</TD>
+    <TD class="r data" noWrap>-0.643</TD>
+    <TD class="r data">0.007</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>115</TH>
+    <TH class="r data">32</TH>
+    <TD class="r data">3.71</TD>
+    <TD class="r data">3.3565</TD>
+    <TD class="r data">0.1090</TD>
+    <TD class="r data">0.3575</TD>
+    <TD class="r data">0.614</TD>
+    <TD class="r data">0.583</TD>
+    <TD class="r data">0.005</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>116</TH>
+    <TH class="r data">32</TH>
+    <TD class="r data">3.88</TD>
+    <TD class="r data">3.3565</TD>
+    <TD class="r data">0.1090</TD>
+    <TD class="r data">0.5185</TD>
+    <TD class="r data">0.614</TD>
+    <TD class="r data">0.845</TD>
+    <TD class="r data">0.011</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>117</TH>
+    <TH class="r data">32</TH>
+    <TD class="r data">3.59</TD>
+    <TD class="r data">3.3565</TD>
+    <TD class="r data">0.1090</TD>
+    <TD class="r data">0.2345</TD>
+    <TD class="r data">0.614</TD>
+    <TD class="r data">0.382</TD>
+    <TD class="r data">0.002</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>118</TH>
+    <TH class="r data">33</TH>
+    <TD class="r data">3.25</TD>
+    <TD class="r data">3.3953</TD>
+    <TD class="r data">0.1200</TD>
+    <TD class="r data" noWrap>-0.1503</TD>
+    <TD class="r data">0.611</TD>
+    <TD class="r data" noWrap>-0.246</TD>
+    <TD class="r data">0.001</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>119</TH>
+    <TH class="r data">34</TH>
+    <TD class="r data">3.51</TD>
+    <TD class="r data">3.4342</TD>
+    <TD class="r data">0.1314</TD>
+    <TD class="r data">0.0768</TD>
+    <TD class="r data">0.609</TD>
+    <TD class="r data">0.126</TD>
+    <TD class="r data">0.000</TD></TR>
+  <TR>
+    <TH class="r rowheader" scope=row>120</TH>
+    <TH class="r data">35</TH>
+    <TD class="r data">3.72</TD>
+    <TD class="r data">3.4730</TD>
+    <TD class="r data">0.1430</TD>
+    <TD class="r data">0.2430</TD>
+    <TD class="r data">0.606</TD>
+    <TD class="r data">0.401</TD>
+    <TD class="r data">0.004</TD></TR></TBODY></TABLE></DIV></DIV><BR><A 
+name=IDX6></A>
+<DIV>
+<DIV class=c><IMG class=c style="HEIGHT: 1650px; WIDTH: 640px" border=0 
+alt="Bar chart of studentized residuals and Cook's D for GPA" 
+src="p1_files/StudResCooksDChart.png"> </DIV></DIV><BR><A name=IDX7></A>
+<DIV>
+<DIV class=c><IMG class=c style="HEIGHT: 450px; WIDTH: 640px" border=0 
+alt="Bar chart of studentized residuals and Cook's D for GPA" 
+src="p1_files/StudResCooksDChart1.png"> </DIV></DIV><BR><A name=IDX8></A>
+<DIV>
+<DIV align=center>
+<TABLE class=table borderColor=#c1c1c1 cellSpacing=0 cellPadding=5 rules=all 
+summary="Procedure Reg: Residual Statistics" frame=box>
+  <COLGROUP>
+  <COL>
+  <COL></COLGROUP>
+  <TBODY>
+  <TR>
+    <TH class="l rowheader" scope=row>Sum of Residuals</TH>
+    <TD class="r data">0</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Sum of Squared Residuals</TH>
+    <TD class="r data">45.81761</TD></TR>
+  <TR>
+    <TH class="l rowheader" scope=row>Predicted Residual SS (PRESS)</TH>
+    <TD class="r data">47.61035</TD></TR></TBODY></TABLE></DIV></DIV><BR><A 
+name=IDX9></A>
+<DIV>
+<DIV class=c><IMG class=c style="HEIGHT: 640px; WIDTH: 640px" border=0 
+alt="Panel of fit diagnostics for GPA." src="p1_files/DiagnosticsPanel.png"> 
+</DIV></DIV><BR><A name=IDX10></A>
+<DIV>
+<DIV class=c><IMG class=c style="HEIGHT: 480px; WIDTH: 640px" border=0 
+alt="Scatter plot of residuals by exam for GPA." 
+src="p1_files/ResidualPlot.png"> </DIV></DIV><BR><A name=IDX11></A>
+<DIV>
+<DIV class=c><IMG class=c style="HEIGHT: 480px; WIDTH: 640px" border=0 
+alt="Scatterplot of GPA by exam overlaid with the fit line, a 95% confidence band and lower and upper 95% prediction limits." 
+src="p1_files/FitPlot.png"> </DIV></DIV><BR></DIV></BODY></HTML>
